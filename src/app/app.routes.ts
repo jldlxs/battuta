@@ -2,9 +2,10 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then(m => m.LoginPage)
   },
+
   {
     path: '',
     redirectTo: 'manager/overview',
@@ -16,19 +17,13 @@ export const routes: Routes = [
     children: [
       {
         path: 'overview',
-        loadComponent: () => import('./overview/overview.page').then(m => m.OverviewPage)
+        loadComponent: () => import('./pages/overview/overview.page').then(m => m.OverviewPage)
       },
     ]
   },
-  {
-    path: 'login',
-    loadComponent: () => import('./login/login.page').then(m => m.LoginPage)
-  },
-
-
   
   {
     path: 'overview',
-    loadComponent: () => import('./overview/overview.page').then(m => m.OverviewPage)
+    loadComponent: () => import('./pages/overview/overview.page').then(m => m.OverviewPage)
   },
 ];
