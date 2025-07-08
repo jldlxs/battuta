@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'battuta.maestro',
-  appName: 'battuta-maestro',
+  appId: 'battuta',
+  appName: 'battuta',
   webDir: 'www'
 };
 
