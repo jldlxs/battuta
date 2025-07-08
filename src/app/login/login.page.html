@@ -1,8 +1,77 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header [translucent]="true" class="hidden"></ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="bg-[#F9F9F9] font-['Inter'] relative">
+
+  <!-- Logo no canto superior esquerdo -->
+  <div class="absolute top-8 left-8 z-10">
+    <img src="assets/logo.png" alt="Logo" class="w-20 h-auto" />
+  </div>
+
+  <!-- Botão Acesso Restrito -->
+<div class="absolute top-8 right-8 z-10">
+  <button (click)="showRestrictedToast()"
+    class="flex items-center gap-2 px-4 py-2 border border-[#D2D2D2] text-[#08001F] text-sm rounded-[5px] bg-white hover:bg-gray-50 transition-all duration-150 shadow-sm">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+  <path fill-rule="evenodd" d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+</svg>
+
+
+    Acesso Restrito
+  </button>
+</div>
+
+
+  <!-- Container do formulário -->
+  <div class="flex items-center justify-center min-h-screen">
+    <div class="w-[400px] bg-[#F9F9F9] border border-[#D2D2D2] rounded-[10px] px-8 py-12 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+
+      <!-- Título -->
+      <div class="text-center mb-8">
+        <h1 class="text-2xl font-tommy-bold text-[#08001F]">battuta</h1>
+      </div>
+
+      <form (ngSubmit)="onLogin()" class="flex flex-col space-y-6">
+
+        <!-- Usuário -->
+        <input
+          type="text"
+          [(ngModel)]="username"
+          name="username"
+          placeholder="Usuário"
+          class="w-full h-[45px] bg-[#FAFAFA] border border-[#D6D6D6] rounded-[5px] px-4 placeholder:text-[#C2C2C2] text-sm outline-none focus:ring-2 focus:ring-[#08001F]"
+          required
+        />
+
+        <!-- Senha -->
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Senha"
+          class="w-full h-[45px] bg-[#FAFAFA] border border-[#D6D6D6] rounded-[5px] px-4 placeholder:text-[#C2C2C2] text-sm outline-none focus:ring-2 focus:ring-[#08001F]"
+          required
+        />
+
+        <!-- Mensagem de erro -->
+        <div *ngIf="showError" class="text-center">
+          <p class="text-[#CC3F3F] text-xs"> {{ toastMessage }} </p>
+        </div>
+
+        <!-- Botão Acessar -->
+        <button
+          type="submit"
+          [disabled]="isLoading"
+          class="w-full h-[45px] bg-[#08001F] hover:bg-[#08001F]/90 text-white rounded-[5px] font-medium text-sm transition-all duration-200 hover:scale-[1.02] flex items-center justify-center gap-2 group">
+
+
+
+          <span *ngIf="!isLoading">Acessar</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+  <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z" clip-rule="evenodd" />
+</svg>
+          <ion-spinner *ngIf="isLoading" name="dots" color="light"></ion-spinner>
+        </button>
+      </form>
+    </div>
+  </div>
 </ion-content>
