@@ -16,8 +16,8 @@ import {
   IonItemGroup,
   IonFooter,
   IonButtons,
-  IonButton,
-} from '@ionic/angular/standalone';
+  IonButton, IonIcon } from '@ionic/angular/standalone';
+import { RouterModule } from '@angular/router';
 
 /**
  * Interface para os itens do menu
@@ -47,7 +47,20 @@ interface MenuItem {
   templateUrl: './manager.page.html',
   styleUrls: ['./manager.page.scss'],
   standalone: true,
-  imports: [IonButton, IonButtons, IonFooter, IonItem, IonItemGroup, IonText, IonLabel, IonCard, IonContent, IonHeader, IonToolbar, IonTitle, 
+  imports: [IonIcon, 
+    RouterModule,
+    IonButton,
+    IonButtons,
+    IonFooter,
+    IonItem,
+    IonItemGroup,
+    IonText,
+    IonLabel,
+    IonCard,
+    IonContent,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
     IonFooter,
     IonCard,
     IonLabel,
@@ -67,17 +80,17 @@ interface MenuItem {
     IonButton,
   ],
 })
-export class ManagerPage implements OnInit {
+export class ManagerPage implements OnInit {  
   /** Lista dos itens que serão exibidos no menu lateral (sidebar). @type {MenuItem[]} */
   menu: MenuItem[] = [
     {
-      icon: 'assets/menu/budget.svg',
+      icon: 'assets/icons/menu/budget.svg',
       title: 'Orçamentos',
       description: 'Orçamentos e precificação',
       url: '/manager/budget',
     },
     {
-      icon: 'assets/menu/production.svg',
+      icon: 'assets/icons/menu/production.svg',
       title: 'Produção',
       description: 'Gerenciar preparo, produção e montagem',
       children: [
@@ -88,7 +101,7 @@ export class ManagerPage implements OnInit {
           url: '#',
         },
         {
-          icon: 'assets/menu/production-preparation.svg',
+          icon: '',
           title: 'Submenu 2',
           description: 'Descrição do submenu 2',
           url: '#',
@@ -96,13 +109,13 @@ export class ManagerPage implements OnInit {
       ],
     },
     {
-      icon: 'assets/menu/logistics.svg',
+      icon: 'assets/icons/menu/logistics.svg',
       title: 'Logística',
       description: 'Estoque e disponibilidade de material',
       url: '/manager/logistics',
     },
     {
-      icon: 'assets/menu/stock.svg',
+      icon: 'assets/icons/menu/stock.svg',
       title: 'Estoque',
       description: 'Estoque e disponibilidade de material',
       url: '/manager/stock',

@@ -1,17 +1,44 @@
 @media only screen and (min-width: 1024px) {
-    ion-menu {
-        max-width: 300px;
-    }
+  ion-menu {
+    max-width: 300px;
+  }
 }
 
 ion-menu {
-    border-right: 1px solid #e3e3e3;
-    // --background: #f3f3f3;
+  border-right: 1px solid #e3e3e3;
+  // --background: #f3f3f3;
 }
 
+.company-card {
+  @apply px-3.5 py-1.5 rounded-lg flex flex-row items-center justify-between;
+}
+
+.menu {
+  @apply flex items-center px-1;
+}
+
+.menu-title, .submenu-title {
+    @apply flex flex-col justify-start ml-2.5;
+}
+
+.submenu {
+  @apply flex items-center pl-11;
+}
+
+.acess-e-security-card {
+  @apply px-2 py-1.5 rounded-lg flex flex-row items-center justify-start bg-[#e4e4e4] hover:bg-[#d4d4d4] transition-colors duration-200;
+}
+
+.manager-account {
+    @apply m-0 p-5 rounded-t-lg rounded-b-none space-y-3;
+}
+
+.manager-account-button {
+    @apply bg-[#08001f] rounded-lg text-white space-x-2;
+}
 
 .clicked {
-    .arrow {
-        transform: rotate(180deg);
-    }
+  .arrow {
+    transform: rotate(180deg);
+  }
 }
