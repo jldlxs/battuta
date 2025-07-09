@@ -19,7 +19,6 @@ import {
     FormsModule,
     IonContent,
     IonHeader,
-    IonIcon,
     IonSpinner
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
