@@ -19,8 +19,7 @@ import {
   IonButton,
   IonIcon,
   IonList,
-  MenuController,
-} from '@ionic/angular/standalone';
+  MenuController, IonNote } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 
 /**
@@ -53,7 +52,7 @@ interface MenuItem {
   templateUrl: './manager.page.html',
   styleUrls: ['./manager.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonNote, 
     IonIcon,
     IonButton,
     IonButtons,
