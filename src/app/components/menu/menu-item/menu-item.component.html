@@ -1,0 +1,26 @@
+<ion-item lines="none" routerDirection="root" class="cursor-pointer">
+  <div class="item">
+    <!-- Ícone à esquerda -->
+    <svg class="icon stroke-[1.5]">
+      <use
+        [attr.href]="
+          menuItem.icon ? menuItem.icon : '#ellipsis-horizontal-circle'
+        "
+      />
+    </svg>
+    <!-- Título e descrição -->
+    <div class="item-info">
+      <ion-title class="item-title">{{ menuItem.title }}</ion-title>
+      <ion-note class="item-description">
+        {{ menuItem.description }}
+      </ion-note>
+    </div>
+  </div>
+
+  <!-- Caso ele possua filhos, mostre o ícone simbolizando que ele consiga expandir -->
+  @if (hasChildren) {
+  <svg class="icon stroke-[1.5]">
+    <use [attr.href]="menuItem.open ? '#chevron-up' : '#chevron-down'" />
+  </svg>
+  }
+</ion-item>

@@ -1,3 +1,5 @@
+@import "tailwindcss/components";
+
 @media only screen and (min-width: 1024px) {
   ion-menu {
     max-width: 300px;
@@ -9,32 +11,33 @@ ion-menu {
   // --background: #f3f3f3;
 }
 
-.company-card {
-  @apply px-3.5 py-1.5 rounded-lg flex flex-row items-center justify-between;
+@layer components {
+  .card {
+    @apply px-3.5 py-1.5 rounded-lg flex flex-row items-center;
+  }
+  .card.company {
+    @apply justify-between;
+  }
+
+  .card.acess-e-security {
+    @apply bg-[#e4e4e4] hover:bg-[#d4d4d4] transition-colors duration-200;
+  }
 }
 
-.menu {
-  @apply flex items-center justify-start w-full px-1;
-}
+.user-card {
+  @apply m-0 p-5 rounded-t-lg rounded-b-none space-y-3 bg-gray-200;
 
-.menu-title, .submenu-title {
-    @apply flex flex-col justify-start ml-2.5;
-}
+  .user-info {
+    @apply flex flex-row items-center ml-1.5 space-x-1.5;
+  }
 
-.submenu {
-  @apply flex items-center pl-11;
-}
+  .user-actions {
+    @apply flex flex-row justify-between;
+  }
 
-.acess-e-security-card {
-  @apply px-2 py-1.5 rounded-lg flex flex-row items-center justify-start bg-[#e4e4e4] hover:bg-[#d4d4d4] transition-colors duration-200;
-}
-
-.manager-account {
-    @apply m-0 p-5 rounded-t-lg rounded-b-none space-y-3;
-}
-
-.manager-account-button {
+  .user-button {
     @apply bg-[#08001f] rounded-lg text-white space-x-2;
+  }
 }
 
 .clicked {
