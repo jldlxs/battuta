@@ -17,7 +17,7 @@ import { MenuListComponent } from '../components/menu/menu-list/menu-list.compon
   templateUrl: './manager.page.html',
   styleUrls: ['./manager.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonSplitPane, IonMenu, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonText, IonLabel, IonCard, IonFooter, IonButtons, IonIcon, IonNote, MenuListComponent,],
+  imports: [CommonModule, FormsModule, IonSplitPane, IonMenu, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonText, IonCard, IonFooter, IonButtons, IonIcon, IonNote, MenuListComponent,],
 })
 export class ManagerPage implements OnInit {
   /**
