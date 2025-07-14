@@ -34,6 +34,16 @@
             "prefix": "app",
             "style": "camelCase"
           }
+        ],
+        "max-len": [
+          "error",
+          {
+            "code": 140,
+            "ignoreComments": true,
+            "ignoreStrings": true,
+            "ignoreUrls": true,
+            "ignorePattern": "^import\\s.+\\sfrom\\s.+;$" // IGNORA quebras de linha em importações
+          }
         ]
       }
     },

@@ -1,5 +1,3 @@
-@import "tailwindcss/components";
-
 @media only screen and (min-width: 1024px) {
   ion-menu {
     max-width: 300px;
@@ -9,35 +7,6 @@
 ion-menu {
   border-right: 1px solid #e3e3e3;
   // --background: #f3f3f3;
-}
-
-@layer components {
-  .card {
-    @apply px-3.5 py-1.5 rounded-lg flex flex-row items-center;
-  }
-  .card.company {
-    @apply justify-between;
-  }
-
-  .card.acess-e-security {
-    @apply bg-[#e4e4e4] hover:bg-[#d4d4d4] transition-colors duration-200;
-  }
-}
-
-.user-card {
-  @apply m-0 p-5 rounded-t-lg rounded-b-none space-y-3 bg-gray-200;
-
-  .user-info {
-    @apply flex flex-row items-center ml-1.5 space-x-1.5;
-  }
-
-  .user-actions {
-    @apply flex flex-row justify-between;
-  }
-
-  .user-button {
-    @apply bg-[#08001f] rounded-lg text-white space-x-2;
-  }
 }
 
 .clicked {

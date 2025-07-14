@@ -43,10 +43,3 @@
 
 /* Custom Fonts */
 @import "assets/fonts/made_tommy/stylesheet.css";
-
-/** Responsável pela estilização dos ícones svg inline */
-@layer components {
-  .icon {
-    @apply size-6 stroke-current fill-none;
-  }
-}

@@ -1,7 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IonItem, IonTitle, IonNote } from '@ionic/angular/standalone';
+import { Component, Input } from '@angular/core';
+import { IonItem, IonTitle, IonNote, } from '@ionic/angular/standalone';
 import { MenuItem } from 'src/app/types/menu-item';
 
+/**
+ * @class MenuItemComponent
+ * @description Componente responsável por exibir um único item de menu.
+ * Ele recebe os dados do item e renderiza seu título e, opcionalmente, um
+ * indicador de que possui sub-itens.
+ */
 @Component({
   selector: 'app-menu-item',
   templateUrl: './menu-item.component.html',
@@ -9,12 +15,17 @@ import { MenuItem } from 'src/app/types/menu-item';
   standalone: true,
   imports: [IonItem, IonTitle, IonNote],
 })
-export class MenuItemComponent implements OnInit {
-  /**  */
-  @Input() menuItem!: MenuItem;
+export class MenuItemComponent {
+  /**
+   * @property {MenuItem} menuItem
+   * @description O objeto contendo os dados do item de menu a ser exibido.
+   */
+  @Input({ required: true }) menuItem!: MenuItem;
 
-  /** */
-  @Input() hasChildren!: boolean;
-
-  ngOnInit() {}
+  /**
+   * @property {boolean} hasChildren
+   * @description Um booleano que indica se o item de menu possui itens filhos (submenus).
+   * Usado para exibir o ícone de seta.
+   */
+  @Input({ required: true }) hasChildren!: boolean;
 }

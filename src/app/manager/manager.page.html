@@ -2,86 +2,105 @@
   <ion-menu contentId="main-content" class="" (ionDidClose)="hideMenu()">
     <ion-header style="box-shadow: none">
       <ion-toolbar>
-        <ion-title class="text-3xl">battuta</ion-title>
+        <ion-icon
+          src="assets/battuta/battuta.svg"
+          class="w-[5.7rem] h-[1.40rem] mt-7 mb-5 ml-5 text-black"
+        />
       </ion-toolbar>
     </ion-header>
 
     <ion-content class="ion-padding">
       <!-- Card de informações da empresa atual -->
-      <ion-card class="card company">
+      <ion-card
+        class="ml-3.5 mr-3 mb-5 pl-3.5 pr-4 py-1.5 rounded-lg flex flex-row items-center"
+      >
         <!-- Coluna: Nome e CNPJ -->
-        <ion-label class="flex flex-col">
-          <ion-text color="dark" class="text-sm font-bold p-0">
+        <div class="flex flex-col flex-1">
+          <ion-text color="dark" class="font-tommy-bold text-xs p-0">
             Battuta Log
           </ion-text>
-          <ion-note class="text-xs">00.000.000/0000-00</ion-note>
-        </ion-label>
+          <ion-note class="font-tommy-regular text-xs"
+            >00.000.000/0000-00</ion-note
+          >
+        </div>
 
         <!-- Ícone à direita -->
-        <svg class="icon stroke-[1.5]">
+        <svg class="size-4 stroke-current stroke-[1.5] fill-none">
           <use href="#chevron-down" />
         </svg>
       </ion-card>
 
       <!-- Lista de menu -->
       <app-menu-list #menulist [menuItems]="menuItems" />
-
     </ion-content>
 
     <ion-footer class="bg-white" style="box-shadow: none">
       <!-- Card de acesso e segurança -->
-      <ion-card class="card acess-e-security">
+      <ion-card
+        class="mx-3 mb-5 px-2.5 py-1 rounded-lg flex flex-row items-center bg-[#e4e4e4] hover:bg-[#d4d4d4] transition-colors duration-200"
+      >
         <!-- Ícone à esquerda -->
-        <svg class="icon stroke-[1.5] text-black">
+        <svg class="size-6 stroke-current stroke-[1.5] fill-none text-black">
           <use href="#lock-closed" />
         </svg>
 
         <!-- Título e descrição -->
-        <ion-label class="flex flex-col ml-5">
-          <ion-text color="dark" class="text-sm font-bold p-0">
+        <div class="flex flex-col ml-3">
+          <ion-text color="dark" class="font-tommy-bold text-sm p-0">
             Acesso & Segurança
           </ion-text>
-          <ion-note class="text-xs">Controle de acesso e segurança</ion-note>
-        </ion-label>
+          <ion-note class="font-tommy-regular text-xs"
+            >Controle de acesso e segurança</ion-note
+          >
+        </div>
       </ion-card>
 
       <!-- Gerenciar conta e sair -->
-      <ion-card color="light" class="user-card">
-        <div class="user-info">
+      <ion-card
+        color="light"
+        class="m-0 pt-3 pb-6 px-5 rounded-t-lg rounded-b-none bg-gray-200"
+      >
+        <div class="flex flex-row items-center ml-1.5 mb-3 space-x-1.5">
           <!-- Quaternário da Battuta -->
           <ion-icon
-            src="assets/icons/battuta/quaternario-roxo.svg"
-            class="w-10 h-5 mb-2"
+            src="assets/battuta/quaternario-roxo.svg"
+            class="w-10 h-5"
           />
 
           <!-- Informações do Usuário -->
           <div class="flex flex-col items-start">
-            <ion-text class="text-xs font-bold">Paulo Meirelles</ion-text>
-            <ion-text class="text-xs">Diretor de Operações</ion-text>
+            <ion-text class="font-tommy-bold text-xs">Paulo Meirelles</ion-text>
+            <ion-text class="font-tommy-regular text-xs"
+              >Diretor de Operações</ion-text
+            >
           </div>
         </div>
 
-        <ion-buttons class="user-actions">
-          <ion-button class="user-button">
+        <ion-buttons class="flex flex-row gap-2.5">
+          <div
+            class="flex items-center px-3.5 py-1.5 bg-[#08001f] rounded-lg text-white space-x-2"
+          >
             <!-- Título -->
-            <ion-text class="text-[.65rem] font-bold">
+            <ion-text class="font-tommy-regular text-[.65rem]">
               Gerenciar Conta
             </ion-text>
 
             <!-- Ícone à direita -->
-            <svg class="icon stroke-[1.5]">
+            <svg class="size-4 stroke-current stroke-[1.5] fill-none">
               <use href="#cog-tooth" />
             </svg>
-          </ion-button>
-          <ion-button class="user-button">
+          </div>
+          <div
+            class="flex items-center px-3.5 py-1.5 bg-[#08001f] rounded-lg text-white space-x-2"
+          >
             <!-- Título -->
-            <ion-label class="text-[.65rem] font-bold">Sair</ion-label>
+            <ion-text class="font-tommy-regular text-[.65rem]">Sair</ion-text>
 
             <!-- Ícone à direita -->
-            <svg class="icon stroke-[1.5]">
+            <svg class="size-4 stroke-current stroke-[1.5] fill-none">
               <use href="#arrow-left-start-on" />
             </svg>
-          </ion-button>
+          </div>
         </ion-buttons>
       </ion-card>
     </ion-footer>
