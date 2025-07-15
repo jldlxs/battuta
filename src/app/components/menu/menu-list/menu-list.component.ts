@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { IonList, IonItemGroup, MenuController, } from '@ionic/angular/standalone';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
 import { MenuItem } from 'src/app/types/menu-item';

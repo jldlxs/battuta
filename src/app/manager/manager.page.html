@@ -1,9 +1,5 @@
 <ion-split-pane contentId="main-content" when="(min-width:1024px)">
-  <ion-menu
-    contentId="main-content"
-    class="bg-red-600"
-    (ionDidClose)="hideMenu()"
-  >
+  <ion-menu contentId="main-content" (ionDidClose)="hideMenu()">
     <ion-header style="box-shadow: none">
       <ion-toolbar>
         <ion-icon
@@ -16,9 +12,9 @@
     <ion-content class="ion-padding">
       <!-- Card de informações da empresa atual -->
       <ion-card
-        class="ml-3.5 mr-3 mb-5 mt-0 pl-3.5 pr-4 py-1.5 rounded-[.64rem] flex flex-row items-center bg-[#fff] shadow-none border border-[#E6E6E6]"
+        class="ml-3.5 mr-3 mb-5 mt-0 pl-3.5 pr-4 py-1.5 rounded-[.64rem] flex flex-row items-center bg-[#fff] shadow-none border border-[#E6E6E6] cursor-pointer"
       >
-        <!-- Coluna: Nome e CNPJ -->
+        <!-- Nome e CNPJ -->
         <div class="flex flex-col flex-1">
           <ion-text color="dark" class="font-tommy-bold text-xs p-0">
             Battuta Log
@@ -41,7 +37,7 @@
     <ion-footer class="bg-white" style="box-shadow: none">
       <!-- Card de acesso e segurança -->
       <ion-card
-        class="mx-3 mb-5 px-2.5 py-1 rounded-[.65rem] flex flex-row items-center bg-[#e4e4e4] shadow-none"
+        class="mx-3 mb-5 px-2.5 py-1 rounded-[.65rem] flex flex-row items-center bg-[#e4e4e4] shadow-none cursor-pointer"
       >
         <!-- Ícone à esquerda -->
         <svg class="size-6 stroke-current stroke-[1.5] fill-none text-black">
@@ -81,11 +77,11 @@
         </div>
 
         <ion-buttons class="flex flex-row gap-2.5">
-          <div
-            class="flex items-center px-3.5 py-1.5 bg-[#08001f] rounded-lg text-white space-x-2"
+          <button
+            class="flex items-center px-3 py-1.5 bg-[#08001F] rounded-lg text-white space-x-2"
           >
             <!-- Título -->
-            <ion-text class="font-tommy-bold text-[.65rem] ">
+            <ion-text class="font-tommy-bold text-[.65rem]">
               Gerenciar Conta
             </ion-text>
 
@@ -93,9 +89,9 @@
             <svg class="size-4 stroke-current stroke-[1.5] fill-white">
               <use href="#cog-tooth-solid" />
             </svg>
-          </div>
-          <div
-            class="flex items-center px-3.5 py-1.5 bg-[#08001f] rounded-lg text-white space-x-2"
+          </button>
+          <button
+            class="flex items-center px-3 py-1.5 bg-[#08001F] rounded-lg text-white space-x-2"
           >
             <!-- Título -->
             <ion-text class="font-tommy-bold text-[.65rem]">Sair</ion-text>
@@ -104,7 +100,7 @@
             <svg class="size-4 stroke-current stroke-[1.5] fill-none">
               <use href="#arrow-left-start-on" />
             </svg>
-          </div>
+          </button>
         </ion-buttons>
       </ion-card>
     </ion-footer>
