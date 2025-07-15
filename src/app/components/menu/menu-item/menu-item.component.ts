@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IonItem, IonTitle, IonNote, } from '@ionic/angular/standalone';
+import { IonItem, IonTitle, IonNote, IonText } from '@ionic/angular/standalone';
 import { MenuItem } from 'src/app/types/menu-item';
 
 /**
@@ -13,7 +13,7 @@ import { MenuItem } from 'src/app/types/menu-item';
   templateUrl: './menu-item.component.html',
   styleUrls: ['./menu-item.component.scss'],
   standalone: true,
-  imports: [IonItem, IonTitle, IonNote],
+  imports: [IonText, IonItem, IonTitle, IonNote],
 })
 export class MenuItemComponent {
   /**

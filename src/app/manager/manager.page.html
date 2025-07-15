@@ -1,5 +1,9 @@
 <ion-split-pane contentId="main-content" when="(min-width:1024px)">
-  <ion-menu contentId="main-content" class="" (ionDidClose)="hideMenu()">
+  <ion-menu
+    contentId="main-content"
+    class="bg-red-600"
+    (ionDidClose)="hideMenu()"
+  >
     <ion-header style="box-shadow: none">
       <ion-toolbar>
         <ion-icon
@@ -12,15 +16,15 @@
     <ion-content class="ion-padding">
       <!-- Card de informações da empresa atual -->
       <ion-card
-        class="ml-3.5 mr-3 mb-5 pl-3.5 pr-4 py-1.5 rounded-lg flex flex-row items-center"
+        class="ml-3.5 mr-3 mb-5 mt-0 pl-3.5 pr-4 py-1.5 rounded-[.64rem] flex flex-row items-center bg-[#fff] shadow-none border border-[#E6E6E6]"
       >
         <!-- Coluna: Nome e CNPJ -->
         <div class="flex flex-col flex-1">
           <ion-text color="dark" class="font-tommy-bold text-xs p-0">
             Battuta Log
           </ion-text>
-          <ion-note class="font-tommy-regular text-xs"
-            >00.000.000/0000-00</ion-note
+          <ion-text class="font-tommy-regular text-[.65rem] text-black"
+            >00.000.000/0000-00</ion-text
           >
         </div>
 
@@ -37,7 +41,7 @@
     <ion-footer class="bg-white" style="box-shadow: none">
       <!-- Card de acesso e segurança -->
       <ion-card
-        class="mx-3 mb-5 px-2.5 py-1 rounded-lg flex flex-row items-center bg-[#e4e4e4] hover:bg-[#d4d4d4] transition-colors duration-200"
+        class="mx-3 mb-5 px-2.5 py-1 rounded-[.65rem] flex flex-row items-center bg-[#e4e4e4] shadow-none"
       >
         <!-- Ícone à esquerda -->
         <svg class="size-6 stroke-current stroke-[1.5] fill-none text-black">
@@ -46,11 +50,11 @@
 
         <!-- Título e descrição -->
         <div class="flex flex-col ml-3">
-          <ion-text color="dark" class="font-tommy-bold text-sm p-0">
+          <ion-text color="dark" class="font-tommy-bold text-sm p-0 text-black">
             Acesso & Segurança
           </ion-text>
-          <ion-note class="font-tommy-regular text-xs"
-            >Controle de acesso e segurança</ion-note
+          <ion-text class="font-tommy-regular text-xs text-black"
+            >Controle de acesso e segurança</ion-text
           >
         </div>
       </ion-card>
@@ -58,7 +62,7 @@
       <!-- Gerenciar conta e sair -->
       <ion-card
         color="light"
-        class="m-0 pt-3 pb-6 px-5 rounded-t-lg rounded-b-none bg-gray-200"
+        class="m-0 pt-3 pb-6 px-5 rounded-t-[.65rem] rounded-b-none bg-[#FDFDFD]"
       >
         <div class="flex flex-row items-center ml-1.5 mb-3 space-x-1.5">
           <!-- Quaternário da Battuta -->
@@ -81,20 +85,20 @@
             class="flex items-center px-3.5 py-1.5 bg-[#08001f] rounded-lg text-white space-x-2"
           >
             <!-- Título -->
-            <ion-text class="font-tommy-regular text-[.65rem]">
+            <ion-text class="font-tommy-bold text-[.65rem]">
               Gerenciar Conta
             </ion-text>
 
             <!-- Ícone à direita -->
-            <svg class="size-4 stroke-current stroke-[1.5] fill-none">
-              <use href="#cog-tooth" />
+            <svg class="size-4 stroke-current stroke-[1.5] fill-white">
+              <use href="#cog-tooth-solid" />
             </svg>
           </div>
           <div
             class="flex items-center px-3.5 py-1.5 bg-[#08001f] rounded-lg text-white space-x-2"
           >
             <!-- Título -->
-            <ion-text class="font-tommy-regular text-[.65rem]">Sair</ion-text>
+            <ion-text class="font-tommy-bold text-[.65rem]">Sair</ion-text>
 
             <!-- Ícone à direita -->
             <svg class="size-4 stroke-current stroke-[1.5] fill-none">
