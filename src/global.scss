@@ -55,3 +55,10 @@
 
 /* Custom Fonts */
 @import "assets/fonts/made_tommy/stylesheet.css";
+
+@font-face {
+  font-family: 'MADE Tommy Bold';
+  src: url('/assets/fonts/MADE-Tommy-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,15 @@
+.batutta-input {
+  box-sizing: border-box;
+  width: 460px;
+  height: 50px;
+  background: #FAFAFA;
+  border: 1px solid #D6D6D6;
+  box-shadow: 0px 4px 20px 15px rgba(169,169,169,0.1);
+  border-radius: 10px;
+  --color: #C2C2C2;
+  --highlight-color: #08001F;
+  --highlight-color-focused: #08001F;
+  font-family: 'MADE Tommy Bold', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}

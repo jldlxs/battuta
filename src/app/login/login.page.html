@@ -33,41 +33,37 @@
       <form (ngSubmit)="onLogin()" class="flex flex-col items-center space-y-6">
 
         <!-- Campo Usuário -->
-        <ion-item class="hide-label"
-          style="box-sizing: border-box; width: 460px; height: 50px; background: #FAFAFA; border: 1px solid #D6D6D6;
-                 box-shadow: 0px 4px 20px 15px rgba(169,169,169,0.1); border-radius: 10px;">
+        <ion-item class="batutta-input" lines="none">
           <ion-input
             type="text"
             label="Usuário"
             labelPlacement="floating"
             [(ngModel)]="username"
             name="username"
-            required
-            style="--color: #C2C2C2; --highlight-color: #08001F; --highlight-color-focused: #08001F;
-                   font-family: 'MADE Tommy Bold', sans-serif; font-weight: bold; font-size: 16px;">
+            aria-label="Usuário"
+            autocomplete="username"
+            required>
           </ion-input>
         </ion-item>
 
         <!-- Campo Senha -->
-        <ion-item class="hide-label"
-          style="box-sizing: border-box; width: 460px; height: 50px; background: #FAFAFA; border: 1px solid #D6D6D6;
-                 box-shadow: 0px 4px 20px 15px rgba(169,169,169,0.1); border-radius: 10px;">
+        <ion-item class="batutta-input" lines="none">
           <ion-input
             type="password"
             label="Senha"
             labelPlacement="floating"
             [(ngModel)]="password"
             name="password"
-            required
-            style="--color: #C2C2C2; --highlight-color: #08001F; --highlight-color-focused: #08001F;
-                   font-family: 'MADE Tommy Bold', sans-serif; font-weight: bold; font-size: 16px;">
+            aria-label="Senha"
+            autocomplete="current-password"
+            required>
           </ion-input>
         </ion-item>
 
         <!-- Mensagem de erro -->
         @if (showError) {
-          <div class="text-center">
-            <p class="text-[#CC3F3F] text-xs font-tommy-bold">
+          <div class="text-center mt-2 mb-2">
+            <p class="text-[#CC3F3F] text-xs font-tommy-bold" role="alert">
               Dados de acesso não encontrados. Verifique os dados informados.
             </p>
           </div>
@@ -98,4 +94,3 @@
     </div>
   </div>
 </ion-content>
-
