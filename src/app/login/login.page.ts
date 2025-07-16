@@ -1,40 +1,27 @@
 import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonSpinner,
-  ToastController,
-  IonInput
-} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonSpinner, IonInput } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonContent,
-    IonHeader,
-    IonSpinner, IonInput
-  ],
+  imports: [CommonModule, FormsModule, IonContent, IonHeader, IonSpinner, IonInput],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LoginPage implements OnInit {
-   username: string = '';
+  public username: string = '';
   public password: string = '';
   public showError: boolean = false;
   public isLoading: boolean = false;
 
 
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 
 

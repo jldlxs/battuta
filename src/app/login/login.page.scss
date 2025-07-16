@@ -9,7 +9,42 @@
   --color: #C2C2C2;
   --highlight-color: #08001F;
   --highlight-color-focused: #08001F;
-  font-family: 'MADE Tommy Bold', sans-serif;
-  font-weight: bold;
+   font-size: 16px;
+  text-transform: capitalize;
+
+  // Ajustes para alinhamento perfeito do input
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  --padding-start: 0 !important;
+  --inner-padding-end: 0 !important;
+  --min-height: 50px !important;
+
+  ion-input {
+    --padding-top: 0 !important;
+    --padding-bottom: 0 !important;
+    --padding-start: 12px !important; // pequeno padding lateral
+    --padding-end: 12px !important;
+
+    .label-text-wrapper {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+}
+.text-botao-acessar {
+  color: #FFFFFF;
   font-size: 16px;
+  text-transform: capitalize;
+}
+.bg-botao{
+  --background: #08001F !important;
+  color: #FFFFFF !important;
+  font-size: 16px;
+  text-transform: capitalize;
+  width: 460px;
+  height: 50px;
+  --border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 20px 15px rgba(169,169,169,0.1);
 }
