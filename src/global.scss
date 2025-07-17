@@ -26,9 +26,9 @@
 // @import "@ionic/angular/css/flex-utils.css";
 
 /* Tailwind ['ng add ngx-tailwind'] */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 /**
  * Ionic Dark Mode
@@ -40,8 +40,6 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 // @import '@ionic/angular/css/palettes/dark.system.css';
-
-
 
 /* Custom Fonts */
 @import "assets/fonts/made_tommy/stylesheet.css";
