@@ -1,0 +1,20 @@
+<!-- Lista de itens do menu -->
+<ion-list class="flex flex-col bg-red-600">
+  @for (menuItem of menuItems; track menuItem.title) {
+  <ion-item-group>
+    <app-menu-item
+      [menuItem]="menuItem"
+      [hasChildren]="hasChildren(menuItem)"
+      (click)="
+        hasChildren(menuItem) ? toggle(menuItem) : navigationByUrl(menuItem)
+      "
+    />
+
+    @if (hasChildren(menuItem) && menuItem.open) {
+    <div class="ml-8">
+      <app-menu-list [menuItems]="menuItem.children!" />
+    </div>
+    }
+  </ion-item-group>
+  }
+</ion-list>

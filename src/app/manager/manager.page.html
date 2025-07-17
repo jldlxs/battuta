@@ -1,13 +1,112 @@
 <ion-split-pane contentId="main-content" when="(min-width:1024px)">
+  <ion-menu contentId="main-content" (ionDidClose)="hideMenu()">
+    <ion-header style="box-shadow: none">
+      <ion-toolbar>
+        <ion-icon
+          src="assets/battuta/battuta.svg"
+          class="w-[5.7rem] h-[1.40rem] mt-7 mb-5 ml-5 text-black"
+        />
+      </ion-toolbar>
+    </ion-header>
 
-  <ion-menu contentId="main-content" class="font-tommy-bold">
-    <ion-menu-toggle menuId="main-content">
-      <!-- aqui será desenvolvido o menu -->
-    </ion-menu-toggle>
+    <ion-content class="ion-padding">
+      <!-- Card de informações da empresa atual -->
+      <ion-card
+        class="ml-3.5 mr-3 mb-5 mt-0 pl-3.5 pr-2 py-1 rounded-[.64rem] flex flex-row items-center bg-[#fff] shadow-none border border-[#E6E6E6] cursor-pointer"
+      >
+        <!-- Nome e CNPJ -->
+        <div class="flex flex-col flex-1">
+          <ion-text color="dark" class="font-tommy-bold text-xs p-0">
+            Battuta Log
+          </ion-text>
+          <ion-text class="font-tommy-regular text-[.65rem] text-black"
+            >00.000.000/0000-00</ion-text
+          >
+        </div>
+
+        <!-- Ícone à direita -->
+        <svg class="size-4 stroke-current stroke-[1.5] fill-none">
+          <use href="#chevron-down" />
+        </svg>
+      </ion-card>
+
+      <!-- Lista de menu -->
+      <app-menu-list #menulist [menuItems]="menuItems" />
+    </ion-content>
+
+    <ion-footer class="bg-white" style="box-shadow: none">
+      <!-- Card de acesso e segurança -->
+      <ion-card
+        class="mx-3 mb-5 px-2.5 py-1 rounded-[.65rem] flex flex-row items-center bg-[#e4e4e4] shadow-none cursor-pointer"
+      >
+        <!-- Ícone à esquerda -->
+        <svg class="size-6 stroke-current stroke-[1.5] fill-none text-black">
+          <use href="#lock-closed" />
+        </svg>
+
+        <!-- Título e descrição -->
+        <div class="flex flex-col ml-3">
+          <ion-text color="dark" class="font-tommy-bold text-sm p-0 text-black">
+            Acesso & Segurança
+          </ion-text>
+          <ion-text class="font-tommy-regular text-xs text-black"
+            >Controle de acesso e segurança</ion-text
+          >
+        </div>
+      </ion-card>
+
+      <!-- Gerenciar conta e sair -->
+      <ion-card
+        color="light"
+        class="m-0 pt-3 pb-6 px-5 rounded-t-[.65rem] rounded-b-none bg-[#FDFDFD]"
+      >
+        <div class="flex flex-row items-center ml-1.5 mb-3 space-x-1.5">
+          <!-- Quaternário da Battuta -->
+          <ion-icon
+            src="assets/battuta/quaternario-roxo.svg"
+            class="w-10 h-5"
+          />
+
+          <!-- Informações do Usuário -->
+          <div class="flex flex-col items-start">
+            <ion-text class="font-tommy-bold text-xs">Paulo Meirelles</ion-text>
+            <ion-text class="font-tommy-regular text-xs"
+              >Diretor de Operações</ion-text
+            >
+          </div>
+        </div>
+
+        <ion-buttons class="flex flex-row gap-2.5">
+          <button
+            class="flex items-center px-3 py-1.5 bg-[#08001F] rounded-lg text-white space-x-2"
+          >
+            <!-- Título -->
+            <ion-text class="font-tommy-bold text-[.65rem]">
+              Gerenciar Conta
+            </ion-text>
+
+            <!-- Ícone à direita -->
+            <svg class="size-4 stroke-current stroke-[1.5] fill-white">
+              <use href="#cog-tooth-solid" />
+            </svg>
+          </button>
+          <button
+            class="flex items-center px-3 py-1.5 bg-[#08001F] rounded-lg text-white space-x-2"
+          >
+            <!-- Título -->
+            <ion-text class="font-tommy-bold text-[.65rem]">Sair</ion-text>
+
+            <!-- Ícone à direita -->
+            <svg class="size-4 stroke-current stroke-[1.5] fill-none">
+              <use href="#arrow-left-start-on" />
+            </svg>
+          </button>
+        </ion-buttons>
+      </ion-card>
+    </ion-footer>
   </ion-menu>
 
   <ion-router-outlet id="main-content">
     <!-- ao clicar em um item do menu, seu conteúdo (page) será renderizado aqui -->
   </ion-router-outlet>
-
 </ion-split-pane>
