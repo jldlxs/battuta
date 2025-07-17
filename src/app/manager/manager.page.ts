@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonSplitPane, IonMenu, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonText, IonLabel, IonCard, IonFooter, IonButtons, IonIcon, IonButton } from '@ionic/angular/standalone';
+import { IonSplitPane, IonMenu, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonText, IonLabel, IonCard, IonFooter, IonButtons, IonIcon, IonButton, IonInput, IonItem } from '@ionic/angular/standalone';
 import { MENU_ITEM, MenuItem } from '../types/menu-item';
 import { MenuListComponent } from '../components/menu/menu-list/menu-list.component';
 
@@ -17,7 +17,7 @@ import { MenuListComponent } from '../components/menu/menu-list/menu-list.compon
   templateUrl: './manager.page.html',
   styleUrls: ['./manager.page.scss'],
   standalone: true,
-  imports: [IonButton, CommonModule, FormsModule, IonSplitPane, IonMenu, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonText, IonCard, IonFooter, IonButtons, IonIcon, MenuListComponent,],
+  imports: [CommonModule, FormsModule, IonSplitPane, IonMenu, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonText, IonCard, IonFooter, IonButtons, IonIcon, MenuListComponent,],
 })
 export class ManagerPage implements OnInit {
   /**
