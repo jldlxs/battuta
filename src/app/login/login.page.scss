@@ -1,15 +1,13 @@
 .batutta-input {
   box-sizing: border-box;
-  width: 460px;
-  height: 50px;
   background: #FAFAFA;
   border: 1px solid #D6D6D6;
-  box-shadow: 0px 4px 20px 15px rgba(169,169,169,0.1);
+  box-shadow: 0px 4px 20px 15px rgba(169, 169, 169, 0.1);
   border-radius: 10px;
   --color: #C2C2C2;
   --highlight-color: #08001F;
   --highlight-color-focused: #08001F;
-   font-size: 16px;
+  font-size: 16px;
   text-transform: capitalize;
 
   // Ajustes para alinhamento perfeito do input
@@ -20,31 +18,35 @@
   --inner-padding-end: 0 !important;
   --min-height: 50px !important;
 
-  ion-input {
-    --padding-top: 0 !important;
-    --padding-bottom: 0 !important;
-    --padding-start: 12px !important; // pequeno padding lateral
-    --padding-end: 12px !important;
 
-    .label-text-wrapper {
-      margin-top: 0 !important;
-      margin-bottom: 0 !important;
-    }
+}
+
+ion-input {
+  --padding-top: 0 !important;
+  --padding-bottom: 0 !important;
+  --padding-start: 12px !important; // pequeno padding lateral
+  --padding-end: 12px !important;
+  height: 3.2rem !important; // altura consistente
+  min-height: 3.2rem !important; // altura mínima consistente
+
+  .label-text-wrapper {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 }
+
 .text-botao-acessar {
   color: #FFFFFF;
   font-size: 16px;
   text-transform: capitalize;
 }
-.bg-botao{
+
+.bg-botao {
   --background: #08001F !important;
   color: #FFFFFF !important;
   font-size: 16px;
   text-transform: capitalize;
-  width: 460px;
-  height: 50px;
   --border-radius: 10px;
   box-sizing: border-box;
-  box-shadow: 0px 4px 20px 15px rgba(169,169,169,0.1);
+  box-shadow: 0px 4px 20px 15px rgba(169, 169, 169, 0.1);
 }

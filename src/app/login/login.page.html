@@ -22,7 +22,7 @@
 
   <!-- Container do formulário -->
   <div class="flex items-center justify-center min-h-screen">
-    <div class="w-[500px] bg-[#F3F3F3] border border-[#D2D2D2] rounded-[10px] px-8 py-12 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+    <div class="w-[31.3rem] bg-[#F3F3F3] border border-[#D2D2D2] rounded-[10px] px-5 pt-7 pb-8 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
 
       <!-- Título -->
       <div class="flex justify-center items-center mb-8" style="height:29px;">
@@ -32,9 +32,9 @@
       <form (ngSubmit)="onLogin()" class="flex flex-col items-center space-y-6">
 
         <!-- Campo Usuário -->
-        <ion-item class="batutta-input font-tommy-bold" lines="none">
+        <ion-item class="font-tommy-bold w-full h-[3.2rem]" lines="none">
           <ion-input
-            class="py-2 font-tommy-regular"
+            class="font-tommy-regular absolute w-[460px] h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] shadow-[0_4px_20px_15px_rgba(169,169,169,0.1)] rounded-[10px] box-border"
             type="text"
             label="Usuário"
             labelPlacement="floating"
@@ -42,14 +42,14 @@
             name="username"
             aria-label="Usuário"
             autocomplete="username"
-            required>
+            >
           </ion-input>
         </ion-item>
 
         <!-- Campo Senha -->
-        <ion-item class="batutta-input font-tommy-bold" lines="none">
+        <ion-item class="font-tommy-bold w-full" lines="none">
           <ion-input
-            class="py-2 font-tommy-regular"
+            class="font-tommy-regular"
             type="password"
             label="Senha"
             labelPlacement="floating"
@@ -57,7 +57,7 @@
             name="password"
             aria-label="Senha"
             autocomplete="current-password"
-            required>
+            >
           </ion-input>
         </ion-item>
 
@@ -71,7 +71,7 @@
         }
 
         <!-- Botão Acessar -->
-        <ion-button type="submit" [disabled]="isLoading" class="bg-botao font-tommy-bold">
+        <ion-button type="submit" [disabled]="isLoading" class="bg-botao font-tommy-bold w-full h-[3.2rem]">
           @if (!isLoading) {
             <div class="flex items-center gap-[10px]">
               <div class="text-botao-acessar font-tommy-bold">acessar</div>
