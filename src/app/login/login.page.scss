@@ -1,3 +1,27 @@
+.batutta-input {
+  --padding-start: 0 !important;
+  --inner-padding-end: 0 !important;
+
+  ion-input {
+    --padding-top: 0 !important;
+    --padding-bottom: 0 !important;
+    --padding-start: 0 !important;
+    --padding-end: 0 !important;
+
+    // Remove margens extras do label flutuante
+    .label-text-wrapper {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+
+  // Centraliza conteúdo verticalmente
+  --min-height: 56px; // altura personalizada (ajuste conforme necessidade)
+  display: flex;
+  align-items: center;
+}
+
+
 .btn-battuta {
   --background: #08001F !important;
   color: #FFFFFF !important;
@@ -23,20 +47,27 @@ ion-label,
   --highlight-color-focused: #C2C2C2 !important;
   --highlight-color-invalid: #C2C2C2 !important;
   --highlight-color-valid: #C2C2C2 !important;
-  --color: #C2C2C2 !important;
   --placeholder-color: #C2C2C2 !important;
   color: #C2C2C2 !important;
-  font-family: 'made_tommymedium' !important;
+  font-family: 'made_tommybold' !important;
 }
 
-ion-item:focus-within,
-ion-item:focus-within ion-input,
-ion-item:focus-within ion-label,
-ion-item:focus-within .label-text-wrapper {
+
+ion-item:focus-within ion-input::part(native) {
   font-family: 'made_tommyregular' !important;
 }
 
-ion-input:focus {
+/* Fallback global para garantir em qualquer input */
+:host ::ng-deep input {
+  color: #000 !important;
+  font-family: 'made_tommybold' !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  height: 100% !important;
+  display: flex;
+  align-items: center;
+}
+:host ::ng-deep ion-item:focus-within input {
   font-family: 'made_tommyregular' !important;
 }
 
