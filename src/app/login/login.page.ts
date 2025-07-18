@@ -1,32 +1,56 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonMenuToggle,
-} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonSpinner, IonInput,IonButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    CommonModule,
-    FormsModule,
-    IonMenuToggle,
-  ],
+  imports: [CommonModule, FormsModule, IonContent, IonHeader, IonSpinner, IonInput, IonButton],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LoginPage implements OnInit {
-  constructor() {}
+  public username: string = '';
+  public password: string = '';
+  public showError: boolean = false;
+  public isLoading: boolean = false;
 
-  /** */
-  ngOnInit() {}
+
+
+  constructor() { }
+
+  ngOnInit() { }
+
+
+
+  onLogin() {
+    this.isLoading = true;
+
+    setTimeout(() => {
+      this.isLoading = false;
+
+      if (!this.username || !this.password) {
+        this.showError = true;
+
+
+        return;
+      }
+
+      if (this.username !== 'admin' || this.password !== '123456') {
+        this.showError = true;
+
+
+
+        return;
+      }
+
+      this.showError = false;
+
+
+
+      // Redirecionamento pode ser colocado aqui se necessário
+    }, 1000);
+  }
 }
