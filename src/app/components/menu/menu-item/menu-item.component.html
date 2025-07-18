@@ -1,0 +1,28 @@
+<ion-item lines="none" routerDirection="root" class="cursor-pointer" color="">
+  <div class="flex items-center justify-start w-full px-1">
+    <!-- Ícone à esquerda -->
+    <svg class="size-6 stroke-current stroke-[1.5] fill-none">
+      <use
+        [attr.href]="
+          menuItem.icon ? menuItem.icon : '#ellipsis-horizontal-circle'
+        "
+      />
+    </svg>
+    <!-- Título e descrição -->
+    <div class="flex flex-col justify-start ml-3">
+      <ion-title class="font-tommy-bold text-base p-0">{{
+        menuItem.title
+      }}</ion-title>
+      <ion-text class="font-tommy-regular text-[.65rem]">
+        {{ menuItem.description }}
+      </ion-text>
+    </div>
+  </div>
+
+  <!-- Caso ele possua filhos, mostre o ícone simbolizando que ele consiga expandir -->
+  @if (hasChildren) {
+  <svg class="size-4 stroke-current stroke-[1.5] fill-none">
+    <use [attr.href]="menuItem.open ? '#chevron-up' : '#chevron-down'" />
+  </svg>
+  }
+</ion-item>
