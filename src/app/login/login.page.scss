@@ -49,7 +49,7 @@ ion-label,
   --highlight-color-valid: #C2C2C2 !important;
   --placeholder-color: #C2C2C2 !important;
   color: #C2C2C2 !important;
-  font-family: 'made_tommybold' !important;
+  font-family: 'made_tommyregular' !important;
 }
 
 
@@ -68,10 +68,11 @@ ion-item:focus-within ion-input::part(native) {
   align-items: center;
 }
 :host ::ng-deep ion-item:focus-within input {
-  font-family: 'made_tommyregular' !important;
+  font-family: 'made_tommybold' !important;
 }
 
 ion-label,
 .label-text-wrapper {
   color: #C2C2C2 !important;
+  font-family: 'made_tommyregular' !important;
 }
