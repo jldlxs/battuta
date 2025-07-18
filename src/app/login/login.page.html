@@ -30,16 +30,16 @@
       <form (ngSubmit)="onLogin()" class="flex flex-col items-center space-y-6">
         <!-- Campo Usuário -->
         <ion-item class="batutta-input" lines="none"
-          class="box-border w-[460px] h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] rounded-[10px] text-[#C2C2C2] text-[16px] capitalize flex items-center justify-center !min-h-[50px] font-normal">
+          class="box-border w-[460px] h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] rounded-[10px] text-[#C2C2C2] text-[16px] flex items-center justify-center !min-h-[50px] font-normal">
           <ion-input class="py-2" type="text" label="Usuário" labelPlacement="floating" [(ngModel)]="username"
-            name="username" aria-label="Usuário" autocomplete="username">
+            name="username" aria-label="Usuário" placeholder="E-mail ou Telefone" autocomplete="username">
           </ion-input>
         </ion-item>
         <!-- Campo Senha -->
         <ion-item class="batutta-input" lines="none"
           class="box-border w-[460px] h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] rounded-[10px] text-[#C2C2C2] text-[16px] capitalize flex items-center justify-center !p-0 !min-h-[50px] font-normal">
-          <ion-input class="py-2" type="password" label="Senha" labelPlacement="floating" [(ngModel)]="password"
-            name="password" aria-label="Senha" autocomplete="current-password">
+          <ion-input class="py-2" type="password" label="Senha de Acesso" labelPlacement="floating" [(ngModel)]="password"
+            name="password" aria-label="Senha" placeholder="••••••" autocomplete="current-password">
           </ion-input>
         </ion-item>
         <!-- Mensagem de erro -->
