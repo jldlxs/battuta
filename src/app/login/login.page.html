@@ -1,6 +1,6 @@
 <ion-header [translucent]="true" class="hidden"></ion-header>
 
-<ion-content [fullscreen]="true" >
+<ion-content [fullscreen]="true">
   <!-- Logo no canto superior esquerdo -->
   <div class="absolute top-8 left-8 z-10">
     <img src="assets/battuta/quaternario-roxo.svg" alt="Logo" class="w-20 h-auto" />
@@ -10,10 +10,8 @@
   <div class="absolute top-8 right-8 z-10">
     <div
       class="flex items-center justify-center gap-2 text-[#08001F] text-sm font-bold border border-[#D2D2D2] rounded-[10px] bg-[#F3F3F3] h-9 px-4 select-none cursor-default shadow-none">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="size-6">
-        <path fill-rule="evenodd"
-          d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-          clip-rule="evenodd" />
+      <svg fill="currentColor" class="size-6">
+        <use href="#shield-check-solid" />
       </svg>
       <span class="font-tommy-bold">Acesso Restrito</span>
     </div>
@@ -29,7 +27,7 @@
       </div>
       <form (ngSubmit)="onLogin()" class="flex flex-col items-center space-y-6">
         <!-- Campo Usuário -->
-        <ion-item class="batutta-input" lines="none"
+        <ion-item class="batutta-input flex items-center min-h-[56px]" lines="none"
           class="box-border w-[460px] h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] rounded-[10px] text-[#C2C2C2] text-[16px] flex items-center justify-center !min-h-[50px] font-normal">
           <ion-input class="py-2" type="text" label="Usuário" labelPlacement="floating" [(ngModel)]="username"
             name="username" aria-label="Usuário" placeholder="E-mail ou Telefone" autocomplete="username">
@@ -38,8 +36,9 @@
         <!-- Campo Senha -->
         <ion-item class="batutta-input" lines="none"
           class="box-border w-[460px] h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] rounded-[10px] text-[#C2C2C2] text-[16px] capitalize flex items-center justify-center !p-0 !min-h-[50px] font-normal">
-          <ion-input class="py-2" type="password" label="Senha de Acesso" labelPlacement="floating" [(ngModel)]="password"
-            name="password" aria-label="Senha" placeholder="••••••" autocomplete="current-password">
+          <ion-input class="py-2" type="password" label="Senha de Acesso" labelPlacement="floating"
+            [(ngModel)]="password" name="password" aria-label="Senha" placeholder="••••••"
+            autocomplete="current-password">
           </ion-input>
         </ion-item>
         <!-- Mensagem de erro -->
@@ -52,14 +51,12 @@
         }
         <!-- Botão Acessar -->
         <ion-button type="submit" [disabled]="isLoading"
-          class="btn-battuta text-white text-[16px] capitalize w-[460px] h-[50px] rounded-[10px] box-border shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] font-bold">
+          class="btn-battuta text-white text-[16px] capitalize w-[460px] h-[50px]  box-border shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] font-bold">
           @if (!isLoading) {
           <div class="flex items-center gap-[10px] ">
             <div class="text-white text-[16px] capitalize font-bold">acessar</div>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="size-6">
-              <path fill-rule="evenodd"
-                d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z"
-                clip-rule="evenodd" />
+            <svg fill="currentColor" class="size-6">
+              <use href="#lock-closed-solid" />
             </svg>
           </div>
           } @else {

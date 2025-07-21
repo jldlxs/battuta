@@ -1,78 +1,26 @@
 .batutta-input {
   --padding-start: 0 !important;
   --inner-padding-end: 0 !important;
-
-  ion-input {
-    --padding-top: 0 !important;
-    --padding-bottom: 0 !important;
-    --padding-start: 0 !important;
-    --padding-end: 0 !important;
-
-    // Remove margens extras do label flutuante
-    .label-text-wrapper {
-      margin-top: 0 !important;
-      margin-bottom: 0 !important;
-    }
-  }
-
-  // Centraliza conteúdo verticalmente
-  --min-height: 56px; // altura personalizada (ajuste conforme necessidade)
-  display: flex;
-  align-items: center;
 }
-
 
 .btn-battuta {
   --background: #08001F !important;
-  color: #FFFFFF !important;
-  font-size: 16px;
-  text-transform: capitalize;
-  width: 460px;
-  height: 50px;
   --border-radius: 10px;
-  box-sizing: border-box;
-  box-shadow: 0px 4px 20px 15px rgba(169, 169, 169, 0.1);
-  font-weight: 700;
 }
 
 ion-content {
   --background: #F9F9F9;
 }
 
-ion-item,
-ion-input,
-ion-label,
-.label-text-wrapper {
-  --highlight-color: #C2C2C2 !important;
-  --highlight-color-focused: #C2C2C2 !important;
-  --highlight-color-invalid: #C2C2C2 !important;
-  --highlight-color-valid: #C2C2C2 !important;
-  --placeholder-color: #C2C2C2 !important;
-  color: #C2C2C2 !important;
-  font-family: 'made_tommyregular' !important;
+ion-input {
+  --highlight-color-invalid: red;
+  --highlight-color-valid: #C2C2C2;
+  --placeholder-color: #c2c2c2;
+  --color: #C2C2C2;
+  font-family: 'made_tommyregular';
 }
-
-
-ion-item:focus-within ion-input::part(native) {
-  font-family: 'made_tommyregular' !important;
-}
-
-/* Fallback global para garantir em qualquer input */
+// solução encontrada alternativa para o problema de cor do ion-input
 :host ::ng-deep input {
   color: #000 !important;
   font-family: 'made_tommybold' !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  height: 100% !important;
-  display: flex;
-  align-items: center;
-}
-:host ::ng-deep ion-item:focus-within input {
-  font-family: 'made_tommybold' !important;
-}
-
-ion-label,
-.label-text-wrapper {
-  color: #C2C2C2 !important;
-  font-family: 'made_tommyregular' !important;
 }
