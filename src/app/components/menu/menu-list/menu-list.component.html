@@ -4,13 +4,13 @@
   <ion-item-group>
     <app-menu-item
       [menuItem]="menuItem"
-      [hasChildren]="onhasChildren(menuItem)"
+      [hasChildren]="onHasChildren(menuItem)"
       (click)="
-        onhasChildren(menuItem) ? ontoggle(menuItem) : onnavigationByUrl(menuItem)
+        onHasChildren(menuItem) ? onToggle(menuItem) : onNavigationByUrl(menuItem)
       "
     />
 
-    @if (onhasChildren(menuItem) && menuItem.open) {
+    @if (onHasChildren(menuItem) && menuItem.open) {
     <div class="ml-8">
       <app-menu-list [menuItems]="menuItem.children!" />
     </div>

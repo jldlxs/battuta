@@ -35,7 +35,7 @@ export class MenuListComponent {
    * @param {MenuItem} menuItem - O item de menu a ser verificado.
    * @returns {boolean} Retorna `true` se o item de menu possui filhos, caso contrário `false`.
    */
-  onhasChildren(menuItem: MenuItem): boolean {
+  onHasChildren(menuItem: MenuItem): boolean {
     return !!(menuItem.children && menuItem.children.length > 0);
   }
 
@@ -43,7 +43,7 @@ export class MenuListComponent {
    * Alterna a visibilidade dos submenus de um item de menu (aberto/fechado).
    * @param {MenuItem} menuItem - O item de menu que terá seu estado alterado.
    */
-  ontoggle(menuItem: MenuItem) {
+  onToggle(menuItem: MenuItem) {
     menuItem.open = !menuItem.open;
   }
 
@@ -51,7 +51,7 @@ export class MenuListComponent {
    * Navega para a URL associada a um item e, em seguida, fecha o menu lateral.
    * @param {MenuItem} menuItem - O item de menu que contém a URL de destino.
    */
-  onnavigationByUrl(menuItem: MenuItem) {
+  onNavigationByUrl(menuItem: MenuItem) {
     this.router.navigateByUrl(menuItem.url!);
     this.menuCtrl.close();
   }
@@ -63,7 +63,7 @@ export class MenuListComponent {
   closeAllMenus(menuItems: MenuItem[] = this.menuItems) {
     for (const item of menuItems) {
       item.open = false;
-      if (this.onhasChildren(item)) {
+      if (this.onHasChildren(item)) {
         this.closeAllMenus(item.children!);
       }
     }

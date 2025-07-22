@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-
+  
   onLogin() {
     this.isLoading = true;
 
@@ -29,22 +29,15 @@ export class LoginPage implements OnInit {
 
       if (!this.username || !this.password) {
         this.showError = true;
-
-
         return;
       }
 
       if (this.username !== 'admin' || this.password !== '123456') {
         this.showError = true;
-
-
-
         return;
       }
 
       this.showError = false;
-
-
 
       // Redirecionamento pode ser colocado aqui se necessário
     }, 1000);

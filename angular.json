@@ -39,10 +39,6 @@
               "src/global.scss",
               "src/theme/variables.scss"
             ],
-            "styles": [
-              "src/global.scss",
-              "src/theme/variables.scss"
-            ],
             "scripts": [],
             "browser": "src/main.ts"
           },
@@ -115,10 +111,6 @@
                 "input": "src/assets",
                 "output": "assets"
               }
-            ],
-            "styles": [
-              "src/global.scss",
-              "src/theme/variables.scss"
             ],
             "styles": [
               "src/global.scss",
