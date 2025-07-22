@@ -1,5 +1,5 @@
 <ion-split-pane contentId="main-content" when="(min-width:1024px)">
-  <ion-menu contentId="main-content" (ionDidClose)="hideMenu()">
+  <ion-menu contentId="main-content" (ionDidClose)="onhideMenu()">
     <ion-header style="box-shadow: none">
       <ion-toolbar>
         <ion-icon
@@ -31,7 +31,7 @@
       </ion-card>
 
       <!-- Lista de menu -->
-      <app-menu-list #menulist [menuItems]="menuItems" />
+      <app-menu-list [menuItems]="menuItems" />
     </ion-content>
 
     <ion-footer class="bg-white" style="box-shadow: none">
