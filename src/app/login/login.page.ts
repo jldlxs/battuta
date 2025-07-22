@@ -17,13 +17,9 @@ export class LoginPage implements OnInit {
   public showError: boolean = false;
   public isLoading: boolean = false;
 
-
-
   constructor() { }
 
   ngOnInit() { }
-
-
 
   onLogin() {
     this.isLoading = true;
