@@ -6,7 +6,8 @@ import {
   IonHeader,
   IonTitle,
   IonToolbar,
-  IonMenuToggle,
+  IonMenuToggle, IonSpinner,
+  IonInput, IonButton
 } from '@ionic/angular/standalone';
 
 @Component({
