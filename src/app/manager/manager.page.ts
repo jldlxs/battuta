@@ -19,7 +19,9 @@ import { MenuListComponent } from '../components/menu/menu-list/menu-list.compon
   standalone: true,
 <<<<<<< Updated upstream
   imports: [CommonModule, FormsModule, IonSplitPane, IonMenu, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonText, IonCard, IonFooter, IonButtons, IonIcon, MenuListComponent],
+=======
   imports: [CommonModule, FormsModule, IonSplitPane, IonMenu, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonText, IonCard, IonFooter, IonButtons, IonIcon, MenuListComponent,],
+>>>>>>> Stashed changes
 })
 export class ManagerPage implements OnInit {
   /**
