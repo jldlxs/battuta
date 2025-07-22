@@ -3,14 +3,13 @@ module.exports = {
   content: ['./src/**/*.{html,ts}'],
   theme: {
     extend: {
-  fontFamily: {
-  'tommy-regular': ['made_tommyregular', 'sans-serif'],
-  'tommy-bold': ['made_tommymedium', 'sans-serif'], // se quiser usar o "bold" também
-},
+      fontFamily: {
+        'tommy-regular': 'made_tommyregular',
+        'tommy-bold': 'made_tommymedium',
+      },
     },
   },
   plugins: [
-    // require('@tailwindcss/forms'),
     require('@tailwindcss/typography')
   ],
 };
