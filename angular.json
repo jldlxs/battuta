@@ -143,7 +143,7 @@
           }
         },
         "e2e": {
-          "builder": "playwright-ng-schematics:playwright",
+          "builder": "",
           "options": {
             "devServerTarget": "app:serve"
           },
