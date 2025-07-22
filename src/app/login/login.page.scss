@@ -1,0 +1,26 @@
+.batutta-input {
+  --padding-start: 0 !important;
+  --inner-padding-end: 0 !important;
+}
+
+.btn-battuta {
+  --background: #08001F !important;
+  --border-radius: 10px;
+}
+
+ion-content {
+  --background: #F9F9F9;
+}
+
+ion-input {
+  --highlight-color-invalid: red;
+  --highlight-color-valid: #C2C2C2;
+  --placeholder-color: #c2c2c2;
+  --color: #C2C2C2;
+  font-family: 'made_tommyregular';
+}
+// solução encontrada alternativa para o problema de cor do ion-input
+:host ::ng-deep input {
+  color: #000 !important;
+  font-family: 'made_tommybold' !important;
+}
