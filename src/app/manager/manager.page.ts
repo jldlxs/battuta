@@ -46,4 +46,5 @@ export class ManagerPage implements OnInit {
   ngOnInit() {
     this.menuItems = MENU_ITEM;
   }
+  
 }
