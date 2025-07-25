@@ -35,17 +35,9 @@ ion-searchbar.search-company {
   margin-bottom: 0.75rem;
 }
 
-ion-item.select-company::part(native) {
-  min-height: 1.9rem;
-}
-
-ion-item.pair {
-  --background: #f1f1f1;
-}
-
 ion-radio.select-company::part(container) {
-  width: 1rem;
-  height: 1rem;
+  width: .75rem;
+  height: .75rem;
 
   border: 1px solid #d9d9d9;
 }
@@ -83,5 +75,4 @@ ion-button#btn-access {
   --padding-start: 0.5rem;
   --padding-end: 0.5rem;
   --box-shadow: none;
-  // min-height: 1.9rem;
 }

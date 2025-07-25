@@ -18,11 +18,10 @@
         <!-- Nome e CNPJ -->
         <div class="flex flex-col flex-1">
           <ion-text color="dark" class="font-tommy-bold text-xs p-0">
-            {{selectedCompany ? selectedCompany.name : "Selecione a Empresa"}}
+            {{ selectedCompany.name }}
           </ion-text>
           <ion-text class="font-tommy-regular text-[.65rem] text-black"
-            >{{selectedCompany ? selectedCompany.cnpj :
-            "00.000.000/0000-00"}}</ion-text
+            >{{ selectedCompany.cnpj }}</ion-text
           >
         </div>
 

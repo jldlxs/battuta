@@ -64,7 +64,7 @@ export class ManagerPage implements OnInit {
    * Inicializa dados do componente:
    * 1. Carrega itens do menu
    * 2. Carrega lista de empresas
-   * 3. Recupera empresa selecionada do localStorage
+   * 3. Recupera empresa selecionada do localStorage, senão pega a empresa padrão.
    */
   ngOnInit(): void {
     this.menuItems = MENU_ITEM;
@@ -75,8 +75,13 @@ export class ManagerPage implements OnInit {
       company => company.cnpj === localStorage.getItem("selectedCompany")
     )
 
-    if (restoreSelectedCompany)
+    if (restoreSelectedCompany) {
       this.selectedCompany = restoreSelectedCompany;
+    } else {
+      this.selectedCompany = this.companies.find(
+        company => company.default === true
+      )!
+    }
   }
 
 }

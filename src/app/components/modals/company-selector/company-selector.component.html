@@ -1,16 +1,16 @@
 <ion-header class="h-fit flex flex-row justify-between pl-4 pr-5 pt-2.5 pb-5">
-  <ion-title class="font-tommy-bold text-xs text-[#8A8A8A] p-0"
+  <ion-title class="font-tommy-bold text-sm text-[#8A8A8A] p-0"
     >Selecionar Empresa</ion-title
   >
   <svg
     (click)="onClose()"
-    class="size-3 stroke-[3] stroke-current text-[#8A8A8A] cursor-pointer"
+    class="size-4 stroke-[3] stroke-current text-[#8A8A8A] cursor-pointer"
   >
     <use href="#x-mark" />
   </svg>
 </ion-header>
 <ion-content class="ion-padding">
-  <div class="flex flex-col h-full pb-[1.4rem] px-3">
+  <div class="h-full flex flex-col pb-[1.4rem] px-3">
     <ion-searchbar
       class="search-company"
       placeholder="Buscar empresa"
@@ -18,7 +18,8 @@
       (ionInput)="onHandleInput($event)"
     />
 
-    <div class="flex flex-1 pl-[.13rem]">
+    @if (searchValid) {
+    <div class="h-full flex flex-1 pl-[.13rem]">
       <ion-list class="w-full" lines="none">
         <ion-radio-group
           [value]="currentCompany ? currentCompany : ''"
@@ -26,25 +27,20 @@
         >
           @if (companies && companies.length > 0) { @for (company of
           resultsCompany; track company.cnpj) {
-          <ion-item
-            class="select-company rounded-[.32rem]"
-            [class.pair]="$index % 2 !== 0"
+          <ion-radio
+            [value]="company"
+            labelPlacement="end"
+            class="select-company w-full even:bg-[#f1f1f1] h-[1.9rem] pl-[.9rem] pr-[1.15rem] rounded"
           >
-            <ion-radio
-              [value]="company"
-              labelPlacement="end"
-              class="select-company"
-            >
-              <div class="flex flex-row justify-between items-center">
-                <ion-title class="font-tommy-bold text-xs p-0">
-                  {{ company.name }}
-                </ion-title>
-                <ion-text class="font-tommy-regular text-[.65rem]">
-                  {{ company.cnpj }}
-                </ion-text>
-              </div>
-            </ion-radio>
-          </ion-item>
+            <div class="flex flex-row justify-between items-center capitalize">
+              <ion-title class="font-tommy-bold text-xs p-0">
+                {{ company.name }}
+              </ion-title>
+              <ion-text class="font-tommy-regular text-[.65rem]">
+                {{ company.cnpj }}
+              </ion-text>
+            </div>
+          </ion-radio>
           } }
         </ion-radio-group>
       </ion-list>
@@ -63,5 +59,12 @@
         <ion-title class="text-white text-xs pl-2 pr-0">Acessar</ion-title>
       </ion-button>
     </div>
+    } @else {
+    <div class="pt-4">
+      <ion-title class="font-tommy-bold text-xs"
+        >Nenhuma empresa encontrada com este nome.</ion-title
+      >
+    </div>
+    }
   </div>
 </ion-content>
