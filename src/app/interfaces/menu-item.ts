@@ -73,6 +73,6 @@ export const MENU_ITEM: MenuItem[] = [
     icon: '#rectangle-stack',
     title: 'Estoque',
     description: 'Estoque e disponibilidade de material',
-    url: '/manager?stock',
+    url: '/manager?stock'
   },
 ];

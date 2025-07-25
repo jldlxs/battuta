@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonSpinner, IonInput, IonButton } from '@ionic/angular/standalone';
 
+/** Tela responsável por logar o usuário ao sistema */
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -17,15 +18,8 @@ export class LoginPage implements OnInit {
   public showError: boolean = false;
   public isLoading: boolean = false;
 
-
-
-  constructor() { }
-
-  ngOnInit() { }
-
-
-
-  onLogin() {
+  /** Valida se o nome de usuário e a senha foram preenchidos corretamente, mostra uma mensagem de erro em caso de falha, e define o estado de carregamento durante o processo (com simulação de delay). */
+  onLogin(): void {
     this.isLoading = true;
 
     setTimeout(() => {
@@ -33,24 +27,19 @@ export class LoginPage implements OnInit {
 
       if (!this.username || !this.password) {
         this.showError = true;
-
-
         return;
       }
 
       if (this.username !== 'admin' || this.password !== '123456') {
         this.showError = true;
-
-
-
         return;
       }
 
       this.showError = false;
-
-
-
-      // Redirecionamento pode ser colocado aqui se necessário
     }, 1000);
   }
+
+  constructor() { }
+
+  ngOnInit() { }
 }
