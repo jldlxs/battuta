@@ -1,14 +1,10 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { IonList, IonItemGroup, MenuController, } from '@ionic/angular/standalone';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
-import { MenuItem } from 'src/app/types/menu-item';
+import { MenuItem } from 'src/app/interfaces/menu-item';
 import { Router } from '@angular/router';
 
-/**
- * @class MenuListComponent
- * @description Componente responsável por renderizar uma lista de itens de menu,
- * incluindo submenus aninhados. Ele gerencia a navegação e o estado (aberto/fechado) dos itens.
- */
+/** Componente responsável por renderizar uma lista de itens de menu, incluindo submenus aninhados. Ele gerencia a navegação e o estado (aberto/fechado) dos itens. */
 @Component({
   selector: 'app-menu-list',
   templateUrl: './menu-list.component.html',
@@ -18,47 +14,44 @@ import { Router } from '@angular/router';
 })
 export class MenuListComponent {
 
-  /** Serviço de roteamento do Angular para navegação entre páginas. */
-  private router = inject(Router);
+  /** Serviço de roteamento do Angular para navegação entre páginas.*/
+  private router: Router = inject(Router);
 
-  /** Controlador do menu lateral do Ionic para fechar o menu após a navegação. */
-  private menuCtrl = inject(MenuController);
+  /** Controlador para operações no menu lateral */
+  private menuCtrl: MenuController = inject(MenuController);
 
-  /**
-   * @property {MenuItem[]} menuItems
-   * @description A lista de itens de menu a ser exibida.
-   */
-  @Input({ required: true }) menuItems: MenuItem[];
+  /** Lista de itens de menu a serem renderizadas. @input */
+  @Input({ required: true }) menuItems: MenuItem[] = [];
 
-  /**
-   * Verifica se um determinado item de menu possui itens filhos.
-   * @param {MenuItem} menuItem - O item de menu a ser verificado.
-   * @returns {boolean} Retorna `true` se o item de menu possui filhos, caso contrário `false`.
+  /** 
+   * Verifica se um item possui subitens. 
+   * @param {MenuItem} menuItem - Item a ser verificado. 
+   * @returns {boolean} `true` se o item possui subitens, `false` caso contrário. 
    */
   onHasChildren(menuItem: MenuItem): boolean {
     return !!(menuItem.children && menuItem.children.length > 0);
   }
 
-  /**
-   * Alterna a visibilidade dos submenus de um item de menu (aberto/fechado).
-   * @param {MenuItem} menuItem - O item de menu que terá seu estado alterado.
+  /** 
+   * Alterna o estado de expansão de um item com submenu.
+   * @param {MenuItem} menuItem - Item que terá seu estado alterado.
    */
-  onToggle(menuItem: MenuItem) {
+  onToggle(menuItem: MenuItem): void {
     menuItem.open = !menuItem.open;
   }
 
-  /**
-   * Navega para a URL associada a um item e, em seguida, fecha o menu lateral.
-   * @param {MenuItem} menuItem - O item de menu que contém a URL de destino.
+  /** 
+   * Navega para a URL do item e fecha o menu lateral.
+   * @param {MenuItem} menuItem - Item contendo a URL de destino. 
    */
-  onNavigationByUrl(menuItem: MenuItem) {
+  onNavigationByUrl(menuItem: MenuItem): void {
     this.router.navigateByUrl(menuItem.url!);
     this.menuCtrl.close();
   }
 
-  /**
-   * Fecha recursivamente todos os submenus abertos na lista.
-   * @param {MenuItem[]} [menuItems=this.menuItems] - A lista de itens de menu a ser processada.
+  /** 
+   * Fecha recursivamente todos os submenus abertos. 
+   * @param {MenuItem[]} [menuItems=this.menuItems] - Lista de itens para processar. 
    */
   closeAllMenus(menuItems: MenuItem[] = this.menuItems) {
     for (const item of menuItems) {

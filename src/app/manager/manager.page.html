@@ -1,5 +1,5 @@
 <ion-split-pane contentId="main-content" when="(min-width:1024px)">
-  <ion-menu contentId="main-content" (ionDidClose)="onhideMenu()">
+  <ion-menu contentId="main-content" (ionDidClose)="onHideMenu()">
     <ion-header style="box-shadow: none">
       <ion-toolbar>
         <ion-icon
@@ -13,14 +13,16 @@
       <!-- Card de informações da empresa atual -->
       <ion-card
         class="ml-3.5 mr-3 mb-5 mt-0 pl-3.5 pr-2 py-1 rounded-[.64rem] flex flex-row items-center bg-[#fff] shadow-none border border-[#E6E6E6] cursor-pointer"
+        (click)="openModal()"
       >
         <!-- Nome e CNPJ -->
         <div class="flex flex-col flex-1">
           <ion-text color="dark" class="font-tommy-bold text-xs p-0">
-            Battuta Log
+            {{selectedCompany ? selectedCompany.name : "Selecione a Empresa"}}
           </ion-text>
           <ion-text class="font-tommy-regular text-[.65rem] text-black"
-            >00.000.000/0000-00</ion-text
+            >{{selectedCompany ? selectedCompany.cnpj :
+            "00.000.000/0000-00"}}</ion-text
           >
         </div>
 
@@ -58,7 +60,7 @@
       <!-- Gerenciar conta e sair -->
       <ion-card
         color="light"
-        class="m-0 pt-3 pb-6 px-5 rounded-t-[.65rem] rounded-b-none bg-[#FDFDFD]"
+        class="m-0 pt-3 pb-6 px-5 rounded-t-[.65rem] rounded-b-none bg-[#FDFDFD] shadow-[0_-4px_15px_1px_rgba(173,173,173,0.15)]"
       >
         <div class="flex flex-row items-center ml-1.5 mb-3 space-x-1.5">
           <!-- Quaternário da Battuta -->

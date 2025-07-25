@@ -1,0 +1,87 @@
+ion-header {
+  box-shadow: none;
+}
+
+ion-searchbar.search-company {
+  height: 1.9rem;
+  --background: #ececec;
+  --color: #000000;
+  --placeholder-color: #949494;
+  --icon-color: #949494;
+  --clear-button-color: #949494;
+  font-family: "made_tommymedium";
+  font-size: 2rem;
+  --box-shadow: none;
+
+  padding: 0;
+  --border-radius: 1rem;
+}
+
+:host ::ng-deep ion-searchbar.search-company input {
+  padding-left: 2.5rem !important;
+  font-size: 0.75rem !important;
+  height: 1.9rem;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+:host ::ng-deep ion-searchbar.search-company ion-icon {
+  top: 0.5rem !important;
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+:host ::ng-deep ion-searchbar.search-company button ion-icon {
+  margin-bottom: 0.75rem;
+}
+
+ion-item.select-company::part(native) {
+  min-height: 1.9rem;
+}
+
+ion-item.pair {
+  --background: #f1f1f1;
+}
+
+ion-radio.select-company::part(container) {
+  width: 1rem;
+  height: 1rem;
+
+  border: 1px solid #d9d9d9;
+}
+
+ion-radio.select-company::part(mark) {
+  background: none;
+  transition: none;
+  transform: none;
+  border-radius: 0;
+}
+
+ion-radio.radio-checked::part(container) {
+  background: #000000;
+  border-color: transparent;
+}
+
+ion-radio.radio-checked::part(mark) {
+  width: 4px;
+  height: 8px;
+
+  border-width: 0px 2px 2px 0px;
+  border-style: solid;
+  border-color: #fff;
+
+  transform: rotate(45deg);
+}
+
+ion-radio.select-company::part(label) {
+  width: 100%;
+  margin-left: 0.5rem;
+}
+
+ion-button#btn-access {
+  --background: #393939;
+  --padding-start: 0.5rem;
+  --padding-end: 0.5rem;
+  --box-shadow: none;
+  // min-height: 1.9rem;
+}
