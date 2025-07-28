@@ -14,15 +14,15 @@ export interface Company {
 export const COMPANIES: Company[] = [
     {
         cnpj: "00.000.000/0000-00",
-        name: "battuta log",
+        name: "Battuta Log",
         default: true
     },
     {
         cnpj: "00.000.000/0000-01",
-        name: "armazém battuta"
+        name: "Armazém Battuta"
     },
     {
         cnpj: "00.000.000/0000-02",
-        name: "beat"
+        name: "Beat"
     }
 ]

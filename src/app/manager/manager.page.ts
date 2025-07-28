@@ -5,7 +5,7 @@ import { IonSplitPane, IonMenu, IonRouterOutlet, IonHeader, IonToolbar, IonConte
 import { MENU_ITEM, MenuItem } from '../interfaces/menu-item';
 import { MenuListComponent } from '../components/menu/menu-list/menu-list.component';
 import { CompanySelectorComponent, CompanySelectorDismiss } from '../components/modals/company-selector/company-selector.component';
-import { COMPANIES, Company } from '../interfaces/company';
+import { COMPANIES, Company } from '../interfaces/tmp.company';
 
 /** Esta página atua como o layout principal após o usuário logar, contendo o menu lateral (sidebar) com as opções de navegação para as diferentes seções do sistema. */
 @Component({

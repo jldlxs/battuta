@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, HostBinding, inject, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonHeader, IonButton, IonTitle, IonContent, ModalController, IonSearchbar, IonList, IonRadioGroup, IonRadio, IonText } from "@ionic/angular/standalone";
-import { Company } from 'src/app/interfaces/company';
+import { Company } from 'src/app/interfaces/tmp.company';
 
 /** Componente Modal usado para selecionar a Empresa que o Usuário deseja usar/entrar. */
 @Component({
@@ -53,23 +53,28 @@ export class CompanySelectorComponent implements OnInit {
     this.searchValid = this.resultsCompany.length > 0;
   }
 
-  /** Fecha o modal atual descartando quaisquer dados e emitindo o evento 'close'. */
+  /** Fecha o modal atual descartando quaisquer dados. */
   onClose(): void {
     this.modalCtrl.dismiss(null, CompanySelectorDismiss.close);
   }
 
-  /** Fecha o modal de seleção de empresa e retorna a empresa selecionada emitindo o evento 'access'. */
+  /** Fecha o modal de seleção de empresa e retorna a empresa selecionada. */
   onSelected(): void {
     this.modalCtrl.dismiss(this.currentCompany, CompanySelectorDismiss.access);
   }
 
   constructor() { }
 
-  /** Altura dinâmica do modal (em pixels) */
+  /** 
+   * Define dinamicamente a altura do modal.
+   * Quando `searchValid` é verdadeiro (válido), a altura será 252px.
+   * Quando for falso (inválido), será 140px.
+   */
   @HostBinding('style.height.px')
   get height(): number {
     return this.searchValid ? 252 : 140;
   }
+
 
   ngOnInit() {
     this.currentCompany = this.selectedCompany;
