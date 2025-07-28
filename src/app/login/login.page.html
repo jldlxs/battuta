@@ -3,13 +3,18 @@
 <ion-content [fullscreen]="true">
   <!-- Logo no canto superior esquerdo -->
   <div class="absolute top-8 left-8 z-10">
-    <img src="assets/battuta/quaternario-roxo.svg" alt="Logo" class="w-20 h-auto" />
+    <img
+      src="assets/battuta/quaternario-roxo.svg"
+      alt="Logo"
+      class="w-20 h-auto"
+    />
   </div>
 
   <!-- Botão Acesso Restrito -->
   <div class="absolute top-8 right-8 z-10">
     <div
-      class="flex items-center justify-center gap-2 text-[#08001F] text-sm font-bold border border-[#D2D2D2] rounded-[10px] bg-[#F3F3F3] h-9 px-4 select-none cursor-default shadow-none">
+      class="flex items-center justify-center gap-2 text-[#08001F] text-sm font-bold border border-[#D2D2D2] rounded-[10px] bg-[#F3F3F3] h-9 px-4 select-none cursor-default shadow-none"
+    >
       <svg fill="currentColor" class="size-6">
         <use href="#shield-check-solid" />
       </svg>
@@ -20,25 +25,55 @@
   <!-- Container do formulário -->
   <div class="flex items-center justify-center min-h-screen">
     <div
-      class="w-[500px] bg-[#F3F3F3] border border-[#D2D2D2] rounded-[10px] px-8 py-12 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+      class="w-[500px] bg-[#F3F3F3] border border-[#D2D2D2] rounded-[10px] px-8 py-12 shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
+    >
       <!-- Título -->
       <div class="flex justify-center items-center mb-8 h-[29px]">
-        <img src="assets/battuta/battuta.svg" alt="Logo Battuta" width="120" height="29" class="block" />
+        <img
+          src="assets/battuta/battuta.svg"
+          alt="Logo Battuta"
+          width="120"
+          height="29"
+          class="block"
+        />
       </div>
       <form (ngSubmit)="onLogin()" class="flex flex-col items-center space-y-6">
         <!-- Campo Usuário -->
-        <ion-item class="batutta-input flex items-center min-h-[56px]" lines="none"
-          class="box-border w-[460px] h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] rounded-[10px] text-[#C2C2C2] text-[16px] flex items-center justify-center !min-h-[50px] font-normal">
-          <ion-input class="py-2" type="text" label="Usuário" labelPlacement="floating" [(ngModel)]="username"
-            name="username" aria-label="Usuário" placeholder="E-mail ou Telefone" autocomplete="username">
+        <ion-item
+          class="batutta-input flex items-center min-h-[56px]"
+          lines="none"
+          class="box-border w-[460px] h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] rounded-[10px] text-[#C2C2C2] text-[16px] flex items-center justify-center !min-h-[50px] font-normal"
+        >
+          <ion-input
+            class="py-2"
+            type="text"
+            label="Usuário"
+            labelPlacement="floating"
+            [(ngModel)]="username"
+            name="username"
+            aria-label="Usuário"
+            placeholder="E-mail ou Telefone"
+            autocomplete="username"
+          >
           </ion-input>
         </ion-item>
         <!-- Campo Senha -->
-        <ion-item class="batutta-input" lines="none"
-          class="box-border w-[460px] h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] rounded-[10px] text-[#C2C2C2] text-[16px] capitalize flex items-center justify-center !p-0 !min-h-[50px] font-normal">
-          <ion-input class="py-2" type="password" label="Senha de Acesso" labelPlacement="floating"
-            [(ngModel)]="password" name="password" aria-label="Senha" placeholder="••••••"
-            autocomplete="current-password">
+        <ion-item
+          class="batutta-input"
+          lines="none"
+          class="box-border w-[460px] h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] rounded-[10px] text-[#C2C2C2] text-[16px] capitalize flex items-center justify-center !p-0 !min-h-[50px] font-normal"
+        >
+          <ion-input
+            class="py-2"
+            type="password"
+            label="Senha de Acesso"
+            labelPlacement="floating"
+            [(ngModel)]="password"
+            name="password"
+            aria-label="Senha"
+            placeholder="••••••"
+            autocomplete="current-password"
+          >
           </ion-input>
         </ion-item>
         <!-- Mensagem de erro -->
@@ -50,17 +85,22 @@
         </div>
         }
         <!-- Botão Acessar -->
-        <ion-button type="submit" [disabled]="isLoading"
-          class="btn-battuta text-white text-[16px] capitalize w-[460px] h-[50px]  box-border shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] font-bold">
+        <ion-button
+          type="submit"
+          [disabled]="isLoading"
+          class="btn-battuta text-white text-[16px] capitalize w-[460px] h-[50px] box-border shadow-[0px_4px_20px_15px_rgba(169,169,169,0.1)] font-bold"
+        >
           @if (!isLoading) {
-          <div class="flex items-center gap-[10px] ">
-            <div class="text-white text-[16px] capitalize font-bold">acessar</div>
+          <div class="flex items-center gap-[10px]">
+            <div class="text-white text-[16px] capitalize font-bold">
+              acessar
+            </div>
             <svg fill="currentColor" class="size-6">
               <use href="#lock-closed-solid" />
             </svg>
           </div>
           } @else {
-          <ion-spinner name="crescent" color="light"></ion-spinner>
+          <ion-spinner name="crescent" color="light" />
           }
         </ion-button>
       </form>

@@ -43,3 +43,11 @@
 
 /* Custom Fonts */
 @import "assets/fonts/made_tommy/stylesheet.css";
+
+/* Modal do Company Selector */
+#modal-company-selector {
+  --width: 604px;
+  --height: auto;
+  --border-radius: 10px;
+  --box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.05);
+}

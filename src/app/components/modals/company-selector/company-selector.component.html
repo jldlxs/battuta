@@ -1,3 +1,70 @@
-<p>
-  company-selector works!
-</p>
+<ion-header class="h-fit flex flex-row justify-between pl-4 pr-5 pt-2.5 pb-5">
+  <ion-title class="font-tommy-bold text-sm text-[#8A8A8A] p-0"
+    >Selecionar Empresa</ion-title
+  >
+  <svg
+    (click)="onClose()"
+    class="size-4 stroke-[3] stroke-current text-[#8A8A8A] cursor-pointer"
+  >
+    <use href="#x-mark" />
+  </svg>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="h-full flex flex-col pb-[1.4rem] px-3">
+    <ion-searchbar
+      class="search-company"
+      placeholder="Buscar empresa"
+      [debounce]="100"
+      (ionInput)="onHandleInput($event)"
+    />
+
+    @if (searchValid) {
+    <div class="h-full flex flex-1 pl-[.13rem]">
+      <ion-list class="w-full" lines="none">
+        <ion-radio-group
+          [value]="currentCompany ? currentCompany : ''"
+          [(ngModel)]="currentCompany"
+        >
+          @if (companies && companies.length > 0) { @for (company of
+          resultsCompany; track company.cnpj) {
+          <ion-radio
+            [value]="company"
+            labelPlacement="end"
+            class="select-company w-full even:bg-[#f1f1f1] h-[1.9rem] pl-[.9rem] pr-[1.15rem] rounded"
+          >
+            <div class="flex flex-row justify-between items-center">
+              <ion-title class="font-tommy-bold text-xs p-0">
+                {{ company.name }}
+              </ion-title>
+              <ion-text class="font-tommy-regular text-[.65rem]">
+                {{ company.cnpj }}
+              </ion-text>
+            </div>
+          </ion-radio>
+          } }
+        </ion-radio-group>
+      </ion-list>
+    </div>
+
+    <div class="flex flex-row justify-end">
+      <ion-button
+        id="btn-access"
+        (click)="onSelected()"
+        [strong]="true"
+        class="capitalize font-tommy-bold text-xs w-[92px] min-h-[1.9rem] h-[1.9rem] m-0"
+      >
+        <svg class="size-4 stroke-[1.5] fill-white">
+          <use href="#check-circle-solid" />
+        </svg>
+        <ion-title class="text-white text-xs pl-2 pr-0">Acessar</ion-title>
+      </ion-button>
+    </div>
+    } @else {
+    <div class="pt-4">
+      <ion-title class="font-tommy-bold text-xs"
+        >Nenhuma empresa encontrada com este nome.</ion-title
+      >
+    </div>
+    }
+  </div>
+</ion-content>
