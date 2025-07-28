@@ -6,6 +6,7 @@ import { MENU_ITEM, MenuItem } from '../interfaces/menu-item';
 import { MenuListComponent } from '../components/menu/menu-list/menu-list.component';
 import { CompanySelectorComponent, CompanySelectorDismiss } from '../components/modals/company-selector/company-selector.component';
 import { COMPANIES, Company } from '../interfaces/tmp.company';
+import { RouterModule } from '@angular/router';
 
 /** Esta página atua como o layout principal após o usuário logar, contendo o menu lateral (sidebar) com as opções de navegação para as diferentes seções do sistema. */
 @Component({
@@ -13,7 +14,7 @@ import { COMPANIES, Company } from '../interfaces/tmp.company';
   templateUrl: './manager.page.html',
   styleUrls: ['./manager.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonSplitPane, IonMenu, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonText, IonCard, IonFooter, IonButtons, IonIcon, MenuListComponent],
+  imports: [CommonModule, FormsModule, IonSplitPane, IonMenu, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonText, IonCard, IonFooter, IonButtons, IonIcon, MenuListComponent, RouterModule],
 })
 export class ManagerPage implements OnInit {
   /** Controlador para a criação e gerenciamento de janelas modais do Ionic */
