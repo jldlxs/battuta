@@ -73,13 +73,9 @@
             [class.bg-[#D3D3D3]]="!permission.access"
             [class.text-white]="permission.access"
             [class.text-[#393939]]="!permission.access"
-            (click)="togglePermission(permission, 'access')"
-          >
+            (click)="togglePermission(permission, 'access')">
             ACESSAR
-            <svg
-              class="w-[12px] h-[12px]"
-              [class.fill-white]="permission.access"
-            >
+            <svg class="w-[12px] h-[12px]"[class.fill-white]="permission.access">
               <use href="#lock-open-solid" />
             </svg>
           </button>
