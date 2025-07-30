@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostBinding, inject, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IonHeader, IonButton, IonTitle, IonContent, ModalController, IonSearchbar, IonList, IonRadioGroup, IonRadio, IonText } from "@ionic/angular/standalone";
+import { IonHeader, IonButton, IonTitle, IonContent, ModalController, IonSearchbar, IonList, IonRadioGroup, IonRadio, IonText, IonToolbar } from "@ionic/angular/standalone";
 import { Company } from 'src/app/interfaces/tmp.company';
 
 /** Componente Modal usado para selecionar a Empresa que o Usuário deseja usar/entrar. */
@@ -9,7 +9,7 @@ import { Company } from 'src/app/interfaces/tmp.company';
   selector: 'app-company-selector',
   templateUrl: './company-selector.component.html',
   styleUrls: ['./company-selector.component.scss'],
-  imports: [IonText, IonRadio, IonRadioGroup, IonList, IonSearchbar, CommonModule, IonContent, IonTitle, IonButton, IonHeader, FormsModule]
+  imports: [IonToolbar, IonText, IonRadio, IonRadioGroup, IonList, IonSearchbar, CommonModule, IonContent, IonTitle, IonButton, IonHeader, FormsModule]
 })
 export class CompanySelectorComponent implements OnInit {
   /** Controlador para a criação e gerenciamento de janelas modais do Ionic. */

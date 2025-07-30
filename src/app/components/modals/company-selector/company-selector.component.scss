@@ -2,6 +2,16 @@ ion-header {
   box-shadow: none;
 }
 
+ion-toolbar {
+  --min-height: 0;
+  --background: transparent;
+}
+
+ion-toolbar::part(content) {
+  display: flex;
+  justify-content: space-between;
+}
+
 ion-searchbar.search-company {
   height: 1.9rem;
   --background: #ececec;
@@ -36,8 +46,8 @@ ion-searchbar.search-company {
 }
 
 ion-radio.select-company::part(container) {
-  width: .75rem;
-  height: .75rem;
+  width: 0.75rem;
+  height: 0.75rem;
 
   border: 1px solid #d9d9d9;
 }
