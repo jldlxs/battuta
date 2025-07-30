@@ -20,15 +20,11 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/overview/overview.page').then((m) => m.OverviewPage),
       },
-      // {
-      //   path: 'access-and-security',
-      //   loadComponent: () => import('./pages/access-and-security/access-and-security.page').then(m => m.AccessAndSecurityPage)
-      // },
+      {
+        path: 'access-and-security',
+        loadComponent: () => import('./pages/access-and-security/access-and-security.page').then(m => m.AccessAndSecurityPage)
+      },
     ],
-  },
-  {
-    path: 'access-and-security',
-    loadComponent: () => import('./pages/access-and-security/access-and-security.page').then(m => m.AccessAndSecurityPage)
   },
   {
     path: 'overview',
