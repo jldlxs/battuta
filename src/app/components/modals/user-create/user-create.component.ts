@@ -6,30 +6,25 @@ import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { checkmark, lockClosed, lockOpen, open, personAdd, close } from 'ionicons/icons';
 
-/* ======================================== */
-/* INTERFACES */
-/* ======================================== */
+/* ========================================
+   INTERFACES
+======================================== */
 
-/**
- * Interface para definir uma permissão de módulo
- */
+// Define a estrutura de uma permissão de módulo
 interface Permission {
   module: string;
   access: boolean;
   edit: boolean;
 }
 
-/**
- * Interface para definir as opções da modal
- */
+// Opções passadas para a modal
 interface ModalOptions {
   title?: string;
   permissions: Permission[];
+  showUserFields?: boolean;
 }
 
-/**
- * Interface para o resultado da modal
- */
+// Estrutura de retorno da modal
 interface ModalResult {
   success: boolean;
   data?: {
@@ -40,9 +35,9 @@ interface ModalResult {
   selectedPermission?: Permission;
 }
 
-/* ======================================== */
-/* COMPONENTE: USER CREATE MODAL */
-/* ======================================== */
+/* ========================================
+   COMPONENTE: UserCreateComponent
+======================================== */
 
 @Component({
   selector: 'app-user-create',
@@ -53,108 +48,98 @@ interface ModalResult {
 })
 export class UserCreateComponent implements OnInit {
 
-  /* ======================================== */
-  /* PROPRIEDADES */
-  /* ======================================== */
+  /* ============================
+     PROPRIEDADES
+  ============================ */
 
-  /** Formulário reativo para os campos de usuário */
+  // Formulário reativo dos campos do usuário
   form: FormGroup;
 
-  /** Opções da modal recebidas como input */
-  modalOptions: ModalOptions = {
+  // Dados recebidos para configurar o modal
+  @Input() modalOptions: ModalOptions = {
     title: 'Adicionar Usuário',
     permissions: [
       { module: 'PROJETOS', access: true, edit: false },
       { module: 'LOGÍSTICA', access: true, edit: false }
-    ]
+    ],
+    showUserFields: true
   };
 
-  /** Dados do usuário */
+  // Dados do usuário (usado para envio)
   userData = {
     username: '',
     collaboratorName: ''
   };
 
-  /** Lista de permissões (cópia das opções para manipulação) */
+  // Lista de permissões manipulável internamente
   permissions: Permission[] = [];
 
-  /* ======================================== */
-  /* CONSTRUTOR */
-  /* ======================================== */
+  /* ============================
+     CONSTRUTOR
+  ============================ */
 
-  constructor(private modalCtrl: ModalController, private fb: FormBuilder) {
-    // Registrar os ícones do Ionic
+  constructor(
+    private modalCtrl: ModalController,
+    private fb: FormBuilder
+  ) {
+    // Registra ícones SVG usados no modal
     addIcons({ checkmark, lockClosed, lockOpen, open, personAdd, close });
 
-    // Inicializar formulário reativo
+    // Inicializa o formulário
     this.form = this.fb.group({
       username: [''],
       collaboratorName: ['']
     });
   }
 
-  /* ======================================== */
-  /* LIFECYCLE HOOKS */
-  /* ======================================== */
+  /* ============================
+     CICLO DE VIDA
+  ============================ */
 
   ngOnInit() {
-    // Inicializar permissões com as opções recebidas
     this.initializePermissions();
   }
 
-  /* ======================================== */
-  /* MÉTODOS PRIVADOS */
-  /* ======================================== */
+  /* ============================
+     MÉTODOS PRIVADOS
+  ============================ */
 
-  /**
-   * Inicializa as permissões com base nas opções da modal
-   */
+  // Copia as permissões recebidas para uso interno
   private initializePermissions(): void {
-    // Criar cópia das permissões para evitar mutação das opções originais
     this.permissions = this.modalOptions.permissions.map(permission => ({
       ...permission
     }));
   }
 
-  /* ======================================== */
-  /* MÉTODOS PÚBLICOS */
-  /* ======================================== */
+  /* ============================
+     MÉTODOS PÚBLICOS
+  ============================ */
 
   /**
-   * Alterna o estado de uma permissão (acesso ou edição)
-   * @param permission - Permissão a ser alterada
-   * @param type - Tipo de permissão ('access' ou 'edit')
+   * Alterna o estado de uma permissão.
+   * - access: ativa/desativa o acesso
+   * - edit: ativa/desativa edição (se acesso estiver ativo)
    */
   togglePermission(permission: Permission, type: 'access' | 'edit'): void {
     if (type === 'access') {
       permission.access = !permission.access;
-      // Se desabilitar acesso, também desabilita edição
       if (!permission.access) {
-        permission.edit = false;
+        permission.edit = false; // edição só é possível com acesso
       }
-    } else if (type === 'edit') {
-      // Só pode editar se tiver acesso
-      if (permission.access) {
-        permission.edit = !permission.edit;
-      }
+    } else if (type === 'edit' && permission.access) {
+      permission.edit = !permission.edit;
     }
   }
 
-  /**
-   * Captura a seleção de uma permissão específica
-   * @param permission - Permissão selecionada
-   */
+  // Retorna apenas uma permissão selecionada e fecha o modal
   selectPermission(permission: Permission): void {
-    // Retorna apenas a permissão selecionada
     this.modalCtrl.dismiss({
       success: true,
       selectedPermission: permission
     } as ModalResult);
   }
 
-  /**
-   * Cria o usuário com todas as permissões
-   */
+  // Envia todos os dados e fecha o modal
   createUser(): void {
     const result: ModalResult = {
       success: true,
@@ -168,21 +153,13 @@ export class UserCreateComponent implements OnInit {
     this.modalCtrl.dismiss(result);
   }
 
-  /**
-   * Cancela a operação da modal
-   */
+  // Cancela a ação e fecha a modal sem enviar dados
   cancel(): void {
-    this.modalCtrl.dismiss({
-      success: false
-    } as ModalResult);
+    this.modalCtrl.dismiss({ success: false } as ModalResult);
   }
 
-  /**
-   * Fecha a modal
-   */
+  // Fecha a modal (atalho visual, equivalente a cancelar)
   onClose(): void {
-    this.modalCtrl.dismiss({
-      success: false
-    } as ModalResult);
+    this.modalCtrl.dismiss({ success: false } as ModalResult);
   }
 }

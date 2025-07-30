@@ -6,17 +6,17 @@
 /* CONFIGURAÇÕES GERAIS */
 /* ======================================== */
 
-/* Estilos para o modal de criação de usuário */
+// Estilos para o modal de criação de usuário
 
-/* Aplicar fonte tommy-regular nos inputs */
+// Aplicar fonte tommy-regular nos inputs
 ion-input {
-  /* Fonte personalizada Made Tommy Medium */
+  // Fonte personalizada Made Tommy Medium
   font-family: 'made_tommymedium' !important;
-
-  /* Cor do texto dos inputs */
+  
+  // Cor do texto dos inputs
   color: #000;
-
-  /* Cor do placeholder */
+  
+  // Cor do placeholder
   --placeholder-color: #C2C2C2;
 }
 
@@ -24,14 +24,14 @@ ion-input {
 /* SOBRESCRITA DE ESTILOS DO IONIC */
 /* ======================================== */
 
-/* Remove a cor de destaque (highlight) dos inputs válidos */
-/* Evita que o Ionic aplique cores automáticas de validação */
+// Remove a cor de destaque (highlight) dos inputs válidos
+// Evita que o Ionic aplique cores automáticas de validação
 .ion-valid.sc-ion-input-md-h {
   --highlight-color: none;
 }
 
-/* Garantir que a fonte seja aplicada mesmo com estilos do Ionic */
-/* Força a aplicação da fonte personalizada no componente nativo do Ionic */
+// Garantir que a fonte seja aplicada mesmo com estilos do Ionic
+// Força a aplicação da fonte personalizada no componente nativo do Ionic
 ion-input ::part(native) {
   font-family: 'made_tommyregular' !important;
 }
@@ -40,8 +40,8 @@ ion-input ::part(native) {
 /* ESTILOS DOS BOTÕES */
 /* ======================================== */
 
-/* Estilos para os botões de permissão */
-/* Aplica a fonte personalizada em todos os botões do Ionic */
+// Estilos para os botões de permissão
+// Aplica a fonte personalizada em todos os botões do Ionic
 ion-button {
   font-family: 'made_tommyregular' !important;
 }

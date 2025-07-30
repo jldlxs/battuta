@@ -4,33 +4,24 @@
 <div
   class="bg-white w-[605px] h-[382px] rounded-[10px] shadow-[0_0_15px_5px_rgba(0,0,0,0.05)] pl-[14px] pr-[20px]"
 >
-  <!-- ======================================== -->
-  <!-- HEADER DO MODAL -->
-  <!-- ======================================== -->
+  <!-- Header do modal com título dinâmico e botão de fechar -->
   <div class="flex items-center justify-between pt-4 pb-[22px]">
-    <!-- Título do Modal (Dinâmico) -->
     <h2 class="font-tommy-bold text-sm text-[#8A8A8A]">
       {{ modalOptions.title }}
     </h2>
 
-    <!-- Botão de Fechar (X) -->
     <svg
       (click)="onClose()"
-      class="size-4 stroke-[3] stroke-current text-[#8A8A8A] cursor-pointer"
-    >
+      class="size-4 stroke-[3] stroke-current text-[#8A8A8A] cursor-pointer">
       <use href="#x-mark" />
     </svg>
   </div>
 
-  <!-- ======================================== -->
-  <!-- FORMULÁRIO PRINCIPAL -->
-  <!-- ======================================== -->
+  <!-- Formulário de criação de usuário -->
   <form [formGroup]="form" (ngSubmit)="createUser()">
-    <!-- ======================================== -->
-    <!-- CAMPOS DE USUÁRIO (CONDICIONAL) -->
-    <!-- ======================================== -->
+    <!-- Campos principais do usuário -->
     <div class="flex flex-col gap-[10px] pb-[14px]">
-      <!-- CAMPO: NOME DO USUÁRIO (LOGIN) -->
+      <!-- Campo: Nome do Usuário (Login) -->
       <div
         class="h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] rounded-[10px] px-4 flex items-center"
       >
@@ -42,7 +33,7 @@
         </ion-input>
       </div>
 
-      <!-- CAMPO: NOME DO COLABORADOR -->
+      <!-- Campo: Nome do Colaborador -->
       <div
         class="h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] rounded-[10px] px-4 flex items-center"
       >
@@ -55,34 +46,26 @@
       </div>
     </div>
 
-    <!-- ======================================== -->
-    <!-- SEÇÃO: PERMISSÕES DO USUÁRIO -->
-    <!-- ======================================== -->
-    <!-- Label da Seção de Permissões -->
+    <!-- Seção de permissões do usuário -->
     <div class="text-[10px] text-[#C2C2C2] font-tommy-bold">
       PERMISSÕES DO USUÁRIO
     </div>
 
-    <!-- ======================================== -->
-    <!-- LISTA DE MÓDULOS (DINÂMICA) -->
-    <!-- ======================================== -->
-
-    <!-- Container para os módulos -->
+    <!-- Lista dinâmica de módulos e permissões -->
     <div class="flex flex-col gap-[.38rem]">
-      <!-- Iteração pelos módulos de permissão -->
       @for (permission of permissions; track $index) {
       <div
         class="h-[50px] bg-[#EFEFEF] rounded-[10px] px-2 py-0"
         style="position: relative"
       >
-        <!-- Título do Módulo -->
+        <!-- Nome do módulo -->
         <span class="text-[#393939] text-[10px] font-tommy-bold">
           Módulo: {{ permission.module }}
         </span>
 
-        <!-- Botões de Permissão -->
+        <!-- Botões de acesso e edição -->
         <div class="flex gap-2 mt-0">
-          <!-- Botão: ACESSAR (Verde - Ativo/Inativo) -->
+          <!-- Botão: Acessar -->
           <button
             type="button"
             class="w-[74px] h-[20px] text-white text-[10px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-2"
@@ -101,7 +84,7 @@
             </svg>
           </button>
 
-          <!-- Botão: EDITAR (Cinza - Desabilitado/Habilitado) -->
+          <!-- Botão: Editar -->
           <button
             type="button"
             class="w-[57px] h-[20px] text-[10px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-1"
@@ -122,18 +105,15 @@
       }
     </div>
 
-    <!-- ======================================== -->
-    <!-- BOTÃO: CRIAR USUÁRIO (CONDICIONAL) -->
-    <!-- ======================================== -->
+    <!-- Botão para criar usuário -->
     <button
       type="submit"
       class="absolute bottom-[24px] right-[24px] w-[116px] h-[30px] bg-[#393939] text-white text-[12px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-2 mr-[2px]"
     >
-      <!-- Ícone de Adicionar -->
+      <!-- Ícone de adicionar -->
       <svg class="w-[18px] h-[18px] fill-white">
         <use href="#plus-circle" />
       </svg>
-      <!-- Texto do Botão -->
       Criar Usuário
     </button>
   </form>

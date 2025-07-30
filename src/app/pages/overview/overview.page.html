@@ -5,24 +5,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-menu-toggle menuId="main-content"> 
+  <ion-menu-toggle menuId="main-content">
     <ion-button fill="clear">
       <ion-icon name="menu" slot="start"></ion-icon>
       Abrir Menu
     </ion-button>
   </ion-menu-toggle>
-
-  <div class="demo-section">
-    <h2>Demonstração do Modal</h2>
-    <p>Clique no botão abaixo para abrir o modal de criação de usuário:</p>
-    
-    <ion-button 
-      expand="block" 
-      color="primary" 
-      (click)="openUserCreateModal()"
-      class="demo-button">
-      <ion-icon name="person-add" slot="start"></ion-icon>
-      Abrir Modal - Adicionar Usuário
-    </ion-button>
-  </div>
 </ion-content>
