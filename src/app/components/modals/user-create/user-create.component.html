@@ -1,0 +1,140 @@
+<!-- ======================================== -->
+<!-- MODAL: CRIAR USUÁRIO -->
+<!-- ======================================== -->
+<div
+  class="bg-white w-[605px] h-[382px] rounded-[10px] shadow-[0_0_15px_5px_rgba(0,0,0,0.05)] pl-[14px] pr-[20px]"
+>
+  <!-- ======================================== -->
+  <!-- HEADER DO MODAL -->
+  <!-- ======================================== -->
+  <div class="flex items-center justify-between pt-4 pb-[22px]">
+    <!-- Título do Modal (Dinâmico) -->
+    <h2 class="font-tommy-bold text-sm text-[#8A8A8A]">
+      {{ modalOptions.title }}
+    </h2>
+
+    <!-- Botão de Fechar (X) -->
+    <svg
+      (click)="onClose()"
+      class="size-4 stroke-[3] stroke-current text-[#8A8A8A] cursor-pointer"
+    >
+      <use href="#x-mark" />
+    </svg>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- FORMULÁRIO PRINCIPAL -->
+  <!-- ======================================== -->
+  <form [formGroup]="form" (ngSubmit)="createUser()">
+    <!-- ======================================== -->
+    <!-- CAMPOS DE USUÁRIO (CONDICIONAL) -->
+    <!-- ======================================== -->
+    <div class="flex flex-col gap-[10px] pb-[14px]">
+      <!-- CAMPO: NOME DO USUÁRIO (LOGIN) -->
+      <div
+        class="h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] rounded-[10px] px-4 flex items-center"
+      >
+        <ion-input
+          formControlName="username"
+          placeholder="Nome do Usuário (Login)"
+          class="text-[16px] w-full"
+        >
+        </ion-input>
+      </div>
+
+      <!-- CAMPO: NOME DO COLABORADOR -->
+      <div
+        class="h-[50px] bg-[#FAFAFA] border border-[#D6D6D6] rounded-[10px] px-4 flex items-center"
+      >
+        <ion-input
+          formControlName="collaboratorName"
+          placeholder="Nome do Colaborador"
+          class="text-[16px] w-full"
+        >
+        </ion-input>
+      </div>
+    </div>
+
+    <!-- ======================================== -->
+    <!-- SEÇÃO: PERMISSÕES DO USUÁRIO -->
+    <!-- ======================================== -->
+    <!-- Label da Seção de Permissões -->
+    <div class="text-[10px] text-[#C2C2C2] font-tommy-bold">
+      PERMISSÕES DO USUÁRIO
+    </div>
+
+    <!-- ======================================== -->
+    <!-- LISTA DE MÓDULOS (DINÂMICA) -->
+    <!-- ======================================== -->
+
+    <!-- Container para os módulos -->
+    <div class="flex flex-col gap-[.38rem]">
+      <!-- Iteração pelos módulos de permissão -->
+      @for (permission of permissions; track $index) {
+      <div
+        class="h-[50px] bg-[#EFEFEF] rounded-[10px] px-2 py-0"
+        style="position: relative"
+      >
+        <!-- Título do Módulo -->
+        <span class="text-[#393939] text-[10px] font-tommy-bold">
+          Módulo: {{ permission.module }}
+        </span>
+
+        <!-- Botões de Permissão -->
+        <div class="flex gap-2 mt-0">
+          <!-- Botão: ACESSAR (Verde - Ativo/Inativo) -->
+          <button
+            type="button"
+            class="w-[74px] h-[20px] text-white text-[10px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-2"
+            [class.bg-[#2BAA00]]="permission.access"
+            [class.bg-[#D3D3D3]]="!permission.access"
+            [class.text-white]="permission.access"
+            [class.text-[#393939]]="!permission.access"
+            (click)="togglePermission(permission, 'access')"
+          >
+            ACESSAR
+            <svg
+              class="w-[12px] h-[12px]"
+              [class.fill-white]="permission.access"
+            >
+              <use href="#lock-open-solid" />
+            </svg>
+          </button>
+
+          <!-- Botão: EDITAR (Cinza - Desabilitado/Habilitado) -->
+          <button
+            type="button"
+            class="w-[57px] h-[20px] text-[10px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-1"
+            [class.bg-[#2BAA00]]="permission.edit"
+            [class.bg-[#D3D3D3]]="!permission.edit"
+            [class.text-white]="permission.edit"
+            [class.text-[#393939]]="!permission.edit"
+            [disabled]="!permission.access"
+            (click)="togglePermission(permission, 'edit')"
+          >
+            EDITAR
+            <svg class="w-[8px] h-[10px]" [class.fill-white]="permission.edit">
+              <use href="#lock-closed-solid" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+
+    <!-- ======================================== -->
+    <!-- BOTÃO: CRIAR USUÁRIO (CONDICIONAL) -->
+    <!-- ======================================== -->
+    <button
+      type="submit"
+      class="absolute bottom-[24px] right-[24px] w-[116px] h-[30px] bg-[#393939] text-white text-[12px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-2 mr-[2px]"
+    >
+      <!-- Ícone de Adicionar -->
+      <svg class="w-[18px] h-[18px] fill-white">
+        <use href="#plus-circle" />
+      </svg>
+      <!-- Texto do Botão -->
+      Criar Usuário
+    </button>
+  </form>
+</div>
