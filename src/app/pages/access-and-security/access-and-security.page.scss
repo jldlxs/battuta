@@ -1,0 +1,40 @@
+.box-shadow {
+  box-shadow: 0 0 8px 0 rgb(0, 0, 0, 0.05);
+  --box-shadow: 0 0 8px 0 rgb(0, 0, 0, 0.05);
+}
+
+ion-header {
+  box-shadow: none;
+}
+
+ion-toolbar {
+  --min-height: 0;
+  --background: transparent;
+}
+
+ion-toolbar::part(content) {
+  display: flex;
+}
+
+ion-content {
+  --background: #f9f9f9;
+}
+
+ion-button.add-user {
+  --border-radius: 6px;
+  --background: #393939;
+
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+}
+
+ion-list {
+  background: transparent;
+  padding: 0;
+}
+
+ion-item {
+  --min-height: 40px;
+  --padding-start: 8px;
+  --inner-padding-end: 8px;
+}

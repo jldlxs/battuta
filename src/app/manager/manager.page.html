@@ -38,21 +38,27 @@
     <ion-footer class="bg-white" style="box-shadow: none">
       <!-- Card de acesso e segurança -->
       <ion-card
-        class="mx-3 mb-5 px-2.5 py-1 rounded-[.65rem] flex flex-row items-center bg-[#e4e4e4] shadow-none cursor-pointer"
+        class="mx-3 mb-5 px-2.5 py-1 rounded-[.65rem] bg-[#e4e4e4] shadow-none cursor-pointer"
+        [routerLink]="['access-and-security']"
       >
-        <!-- Ícone à esquerda -->
-        <svg class="size-6 stroke-current stroke-[1.5] fill-none text-black">
-          <use href="#lock-closed" />
-        </svg>
+        <div class="flex flex-row items-center">
+          <!-- Ícone à esquerda -->
+          <svg class="size-6 stroke-current stroke-[1.5] fill-none text-black">
+            <use href="#lock-closed" />
+          </svg>
 
-        <!-- Título e descrição -->
-        <div class="flex flex-col ml-3">
-          <ion-text color="dark" class="font-tommy-bold text-sm p-0 text-black">
-            Acesso & Segurança
-          </ion-text>
-          <ion-text class="font-tommy-regular text-xs text-black"
-            >Controle de acesso e segurança</ion-text
-          >
+          <!-- Título e descrição -->
+          <div class="flex flex-col ml-3">
+            <ion-text
+              color="dark"
+              class="font-tommy-bold text-sm p-0 text-black"
+            >
+              Acesso & Segurança
+            </ion-text>
+            <ion-text class="font-tommy-regular text-xs text-black"
+              >Controle de acesso e segurança</ion-text
+            >
+          </div>
         </div>
       </ion-card>
 
