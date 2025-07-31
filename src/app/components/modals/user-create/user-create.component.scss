@@ -1,15 +1,27 @@
-ion-input {
+/* ======================================== */
+/* ESTILOS DOS INPUTS IONIC */
+/* ======================================== */
 
+// Configurações globais para todos os inputs Ionic
+// Define a fonte personalizada e cores de validação
+ion-input {
   font-family: "made_tommymedium" !important;
-  --highlight-color-invalid: red;
-  --highlight-color-valid: #c2c2c2;
-  --placeholder-color: #c2c2c2;
-  --color: #c2c2c2;
-  font-family: "made_tommyregular";
+  --highlight-color-invalid: red;        // Cor de destaque para inputs inválidos
+  --highlight-color-valid: #c2c2c2;     // Cor de destaque para inputs válidos
+  --placeholder-color: #c2c2c2;         // Cor do placeholder
+  --color: #c2c2c2;                     // Cor do texto do input
+  font-family: "made_tommyregular";     // Fonte personalizada
 }
+
+/* ======================================== */
+/* ESTILOS DO INPUT NATIVO */
+/* ======================================== */
+
+// Estilos aplicados diretamente no elemento input nativo
+// Garante que a cor e fonte sejam aplicadas corretamente
 :host ::ng-deep input {
-  color: #000 !important;
-  font-family: 'made_tommybold' !important;
+  color: #000 !important;                // Cor do texto (preto)
+  font-family: 'made_tommybold' !important;  // Fonte em negrito
 }
 
 /* ======================================== */
