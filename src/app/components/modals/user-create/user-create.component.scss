@@ -1,23 +1,15 @@
-/* ======================================== */
-/* ESTILOS DO COMPONENTE: USER CREATE MODAL */
-/* ======================================== */
-
-/* ======================================== */
-/* CONFIGURAÇÕES GERAIS */
-/* ======================================== */
-
-// Estilos para o modal de criação de usuário
-
-// Aplicar fonte tommy-regular nos inputs
 ion-input {
-  // Fonte personalizada Made Tommy Medium
-  font-family: 'made_tommymedium' !important;
-  
-  // Cor do texto dos inputs
-  color: #000;
-  
-  // Cor do placeholder
-  --placeholder-color: #C2C2C2;
+
+  font-family: "made_tommymedium" !important;
+  --highlight-color-invalid: red;
+  --highlight-color-valid: #c2c2c2;
+  --placeholder-color: #c2c2c2;
+  --color: #c2c2c2;
+  font-family: "made_tommyregular";
+}
+:host ::ng-deep input {
+  color: #000 !important;
+  font-family: 'made_tommybold' !important;
 }
 
 /* ======================================== */
@@ -33,7 +25,7 @@ ion-input {
 // Garantir que a fonte seja aplicada mesmo com estilos do Ionic
 // Força a aplicação da fonte personalizada no componente nativo do Ionic
 ion-input ::part(native) {
-  font-family: 'made_tommyregular' !important;
+  font-family: "made_tommyregular" !important;
 }
 
 /* ======================================== */
@@ -43,6 +35,5 @@ ion-input ::part(native) {
 // Estilos para os botões de permissão
 // Aplica a fonte personalizada em todos os botões do Ionic
 ion-button {
-  font-family: 'made_tommyregular' !important;
+  font-family: "made_tommyregular" !important;
 }
-

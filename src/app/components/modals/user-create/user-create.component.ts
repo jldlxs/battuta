@@ -118,15 +118,12 @@ export class UserCreateComponent implements OnInit {
   /**
    * Alterna o estado de uma permissão.
    * - access: ativa/desativa o acesso
-   * - edit: ativa/desativa edição (se acesso estiver ativo)
+   * - edit: ativa/desativa edição (independente do acesso)
    */
   togglePermission(permission: Permission, type: 'access' | 'edit'): void {
     if (type === 'access') {
       permission.access = !permission.access;
-      if (!permission.access) {
-        permission.edit = false; // edição só é possível com acesso
-      }
-    } else if (type === 'edit' && permission.access) {
+    } else if (type === 'edit') {
       permission.edit = !permission.edit;
     }
   }
@@ -163,3 +160,4 @@ export class UserCreateComponent implements OnInit {
     this.modalCtrl.dismiss({ success: false } as ModalResult);
   }
 }
+
