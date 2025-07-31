@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular/standalone';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
@@ -74,6 +74,11 @@ export class UserCreateComponent implements OnInit {
   // Lista de permissões manipulável internamente
   permissions: Permission[] = [];
 
+  // Estados de erro para validação
+  showUsernameError = false;
+  showCollaboratorError = false;
+  showPermissionsError = false;
+
   /* ============================
      CONSTRUTOR
   ============================ */
@@ -85,10 +90,10 @@ export class UserCreateComponent implements OnInit {
     // Registra ícones SVG usados no modal
     addIcons({ checkmark, lockClosed, lockOpen, open, personAdd, close });
 
-    // Inicializa o formulário
+    // Inicializa o formulário com validações
     this.form = this.fb.group({
-      username: [''],
-      collaboratorName: ['']
+      username: ['', [Validators.required]],
+      collaboratorName: ['', [Validators.required]]
     });
   }
 
@@ -111,6 +116,49 @@ export class UserCreateComponent implements OnInit {
     }));
   }
 
+  // Valida se pelo menos uma permissão está selecionada
+  private validatePermissions(): boolean {
+    return this.permissions.some(permission => permission.access || permission.edit);
+  }
+
+  // Limpa todas as mensagens de erro
+  private clearErrors(): void {
+    this.showUsernameError = false;
+    this.showCollaboratorError = false;
+    this.showPermissionsError = false;
+  }
+
+  // Valida todos os campos do formulário
+  private validateForm(): boolean {
+    let isValid = true;
+
+    // Validação do nome do usuário
+    if (!this.form.get('username')?.value?.trim()) {
+      this.showUsernameError = true;
+      isValid = false;
+    } else {
+      this.showUsernameError = false;
+    }
+
+    // Validação do nome do colaborador
+    if (!this.form.get('collaboratorName')?.value?.trim()) {
+      this.showCollaboratorError = true;
+      isValid = false;
+    } else {
+      this.showCollaboratorError = false;
+    }
+
+    // Validação das permissões
+    if (!this.validatePermissions()) {
+      this.showPermissionsError = true;
+      isValid = false;
+    } else {
+      this.showPermissionsError = false;
+    }
+
+    return isValid;
+  }
+
   /* ============================
      MÉTODOS PÚBLICOS
   ============================ */
@@ -126,6 +174,11 @@ export class UserCreateComponent implements OnInit {
     } else if (type === 'edit') {
       permission.edit = !permission.edit;
     }
+
+    // Limpa erro de permissões quando uma permissão é selecionada
+    if (this.showPermissionsError && this.validatePermissions()) {
+      this.showPermissionsError = false;
+    }
   }
 
   // Retorna apenas uma permissão selecionada e fecha o modal
@@ -138,6 +191,14 @@ export class UserCreateComponent implements OnInit {
 
   // Envia todos os dados e fecha o modal
   createUser(): void {
+    // Limpa erros anteriores
+    this.clearErrors();
+
+    // Valida o formulário
+    if (!this.validateForm()) {
+      return; // Para a execução se houver erros
+    }
+
     const result: ModalResult = {
       success: true,
       data: {
