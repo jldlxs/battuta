@@ -5,13 +5,12 @@
 // Configurações globais para todos os inputs Ionic
 // Define a fonte personalizada e cores de validação
 ion-input {
-  font-family: "made_tommymedium" !important;
+  font-family: "made_tommyregular" !important;
   --highlight-color-invalid: none; // Cor de destaque para inputs inválidos
   --highlight-color-valid: #c2c2c2; // Cor de destaque para inputs válidos
   --color: #c2c2c2;
   --highlight-color-focused: #c2c2c2; // Cor do texto do input
 }
-
 /* ======================================== */
 /* ESTILOS DO INPUT NATIVO */
 /* ======================================== */

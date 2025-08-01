@@ -52,7 +52,7 @@
       <!-- Campo: Nome do Colaborador -->
       <div class="flex flex-col">
         <ion-item
-          class="w-full h-[50px] border border-[#D6D6D6] rounded-[10px] text-[#C2C2C2] text-[16px] !min-h-[50px] font-normal flex items-center"
+          class="w-full h-[50px] border border-[#D6D6D6] rounded-[10px] text-[#C2C2C2] text-[16px] !min-h-[50px]  flex items-center"
           lines="none"
         >
           <ion-input
@@ -97,7 +97,7 @@
             <!-- Botão: Acessar -->
             <button
               type="button"
-              class="w-[74px] h-[20px] text-[10px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-2 cursor-pointer"
+              class="w-[74px] h-[20px] text-[10px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-1.5 cursor-pointer"
               [ngClass]="
                 permission.access
                   ? 'bg-[#2BAA00] text-white'
@@ -117,7 +117,7 @@
             <!-- Botão: Editar -->
             <button
               type="button"
-              class="w-[57px] h-[20px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-1 cursor-pointer"
+              class="w-[57px] h-[20px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-0.5 cursor-pointer"
               [ngClass]="
                 permission.edit
                   ? 'bg-[#2BAA00] text-white'
@@ -127,7 +127,7 @@
             >
               <div class="text-[10px]">EDITAR</div>
               <svg
-                class="w-[8px] h-[10px]"
+                class="w-[12px] h-[12px]"
                 [ngClass]="permission.edit ? 'fill-white' : 'fill-[#393939]'"
               >
                 <use href="#lock-closed-solid" />
