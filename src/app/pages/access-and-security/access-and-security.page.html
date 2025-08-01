@@ -1,0 +1,105 @@
+<ion-header class="pt-10 pl-[3.80rem]" translucent="true">
+  <ion-toolbar>
+    <svg class="size-6 stroke-[1.5] stroke-current fill-none">
+      <use href="#chevron-left"></use>
+    </svg>
+    <ion-title class="font-tommy-bold text-lg text-[#393939] pl-6">
+      Acesso & Segurança
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div
+    class="bg-[#EBEBEB] border border-[#D2D2D2] rounded-[.65rem] ml-9 mr-[3.75rem] mt-[3.4rem] p-5 pt-3 box-shadow"
+  >
+    <!--  -->
+    <div class="flex flex-row justify-between mb-8 pl-1">
+      <ion-title class="font-tommy-bold text-base text-[#393939] p-0">
+        Usuários
+      </ion-title>
+      <ion-button (click)="openUserCreateModal()"
+        class="add-user font-tommy-bold text-xs normal-case min-h-[30px] m-0 box-shadow"
+      >
+        <svg
+          class="size-[1.15rem] stroke-[1.5] stroke-none fill-white mr-[.38rem]"
+        >
+          <use href="#plus-circle-solid"></use>
+        </svg>
+        <ion-text>Adicionar Usuário</ion-text>
+      </ion-button>
+    </div>
+
+    <!--  -->
+    <ion-list>
+      <!--  -->
+      <ion-list-header
+        class="min-h-0 font-tommy-bold text-xs text-[#8A8A8A] mb-[.38rem] p-0 pl-1"
+      >
+        <div class="grid w-full grid-cols-[2fr_2fr_1fr_5fr] items-center">
+          <ion-text>Nome do Usuário</ion-text>
+          <ion-text>Titular</ion-text>
+          <ion-text>Último Acesso</ion-text>
+        </div>
+      </ion-list-header>
+      <!--  -->
+      @for (user of users; track $index) {
+      <ion-item
+        lines="none"
+        class="mb-[.38rem] bg-[#fafafa] rounded-md border border-[#D6D6D6] font-tommy-bold box-shadow"
+      >
+        <div class="grid w-full grid-cols-[2fr_2fr_1fr_5fr] items-center">
+          <ion-text class="text-xs text-black"
+            >{{ user.username.trim() }}</ion-text
+          >
+          <ion-text class="text-xs text-[#393939]"
+            >{{ user.fullName.trim() }}</ion-text
+          >
+          <ion-text class="text-xs text-[#393939]"
+            >{{ user.lastAccess.trim() }}</ion-text
+          >
+
+          <div
+            class="flex items-center justify-end gap-x-2 font-tommy-bold text-[.65rem] text-white"
+          >
+            <div
+              class="flex flex-row items-center gap-[.38rem] bg-[#2BAA00] px-2 py-1 rounded-md box-shadow"
+              [class.bg-[#919191]]="!user.accessRemote"
+            >
+              <ion-text>ACESSO REMOTO</ion-text>
+              <svg class="size-[.65rem] fill-white">
+                <use href="#clound-solid"></use>
+              </svg>
+            </div>
+            <div
+              class="flex flex-row items-center gap-[.38rem] bg-[#2BAA00] px-2 py-1 rounded-md box-shadow"
+              [class.bg-[#919191]]="!user.permissions"
+            >
+              <ion-text>PERMISSÕES</ion-text>
+              <svg class="size-[.65rem] fill-white">
+                <use href="#lock-closed-solid"></use>
+              </svg>
+            </div>
+            <div
+              class="flex flex-row items-center gap-[.38rem] bg-[#F94848] px-2 py-1 rounded-md box-shadow"
+            >
+              <ion-text>REMOVER</ion-text>
+              <svg class="size-[.65rem] fill-white">
+                <use href="#trash-solid"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+      }
+    </ion-list>
+    <!--  -->
+    <div
+      class="font-tommy-bold text-[.65rem] text-[#969696] flex flex-row justify-end mt-5 mr-2"
+    >
+      <ion-text class="mr-[.38rem]">Exibir usuários removidos</ion-text>
+      <svg class="size-4 stroke-[2] stroke-current fill-none">
+        <use href="#chevron-down"></use>
+      </svg>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,77 @@
+/* ======================================== */
+/* ESTILOS DOS INPUTS IONIC */
+/* ======================================== */
+
+// Configurações globais para todos os inputs Ionic
+// Define a fonte personalizada e cores de validação
+ion-input {
+  font-family: "made_tommyregular" !important;
+  --highlight-color-invalid: none; // Cor de destaque para inputs inválidos
+  --highlight-color-valid: #c2c2c2; // Cor de destaque para inputs válidos
+  --color: #c2c2c2;
+  --highlight-color-focused: #c2c2c2; // Cor do texto do input
+}
+/* ======================================== */
+/* ESTILOS DO INPUT NATIVO */
+/* ======================================== */
+
+// Estilos aplicados diretamente no elemento input nativo
+// Garante que a cor e fonte sejam aplicadas corretamente
+:host ::ng-deep input {
+  color: #000 !important;
+  font-family: "made_tommybold" !important;
+}
+
+/* ======================================== */
+/* SOBRESCRITA DE ESTILOS DO IONIC */
+/* ======================================== */
+
+// Remove a cor de destaque (highlight) dos inputs válidos
+// Evita que o Ionic aplique cores automáticas de validação
+.ion-valid.sc-ion-input-md-h {
+  --highlight-color: none;
+  --highlight-color-invalid: red;
+  --highlight-color-valid: #c2c2c2;
+  --placeholder-color: #c2c2c2;
+  --color: #c2c2c2;
+}
+
+// Garantir que a fonte seja aplicada mesmo com estilos do Ionic
+// Força a aplicação da fonte personalizada no componente nativo do Ionic
+ion-input ::part(native) {
+  font-family: "made_tommyregular" !important;
+}
+
+/* ======================================== */
+/* ESTILOS DOS BOTÕES */
+/* ======================================== */
+
+// Estilos para os botões de permissão
+// Aplica a fonte personalizada em todos os botões do Ionic
+ion-button {
+  font-family: "made_tommyregular" !important;
+}
+/* ======================================== */
+/* FORÇAR BACKGROUND DOS INPUTS */
+/* ======================================== */
+
+// Força o background #FAFAFA em toda a área do input
+ion-item {
+  --background: #FAFAFA !important;
+  --border-color: #D6D6D6 !important;
+}
+
+// Remove background padrão do Ionic
+ion-item.sc-ion-item-md-h {
+  --background: #FAFAFA !important;
+}
+
+// Força background no componente nativo
+ion-item ::part(native) {
+  background-color: #FAFAFA !important;
+}
+
+// Remove qualquer background interno do Ionic
+ion-item .item-inner {
+  background-color: #FAFAFA !important;
+}

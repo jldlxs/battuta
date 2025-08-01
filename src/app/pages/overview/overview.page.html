@@ -1,9 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>overview</ion-title>
+    <ion-title>Overview</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-menu-toggle menuId="main-content"> Botão de abrir menu </ion-menu-toggle>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-menu-toggle menuId="main-content">
+    <ion-button fill="clear">
+      <ion-icon name="menu" slot="start"></ion-icon>
+      Abrir Menu
+    </ion-button>
+  </ion-menu-toggle>
 </ion-content>

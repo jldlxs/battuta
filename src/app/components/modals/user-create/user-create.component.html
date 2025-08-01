@@ -1,0 +1,164 @@
+<!-- Modal container principal -->
+<div
+  class="w-[605px] h-[423px] rounded-[10px] shadow-[0_0_15px_5px_rgba(0,0,0,0.05)] pl-[14px] pr-[20px]"
+>
+  <!-- Cabeçalho da modal com título e botão de fechar -->
+  <div class="flex items-center justify-between pt-4 pb-[22px]">
+    <h2 class="font-tommy-bold text-sm text-[#8A8A8A]">
+      {{ modalOptions.title }}
+    </h2>
+    <svg
+      (click)="onClose()"
+      class="size-4 stroke-[3] stroke-current text-[#8A8A8A] cursor-pointer"
+    >
+      <use href="#x-mark" />
+    </svg>
+  </div>
+
+  <!-- Formulário de criação de usuário -->
+  <form [formGroup]="form" (ngSubmit)="createUser()">
+    <!-- Campos de entrada do usuário -->
+    <div class="flex flex-col gap-[10px] pb-[14px]">
+
+      <!-- Campo: Nome do Usuário (login) -->
+      <div class="flex flex-col">
+        <ion-item
+          class="w-full h-[50px] border border-[#D6D6D6] rounded-[10px] text-[#C2C2C2] text-[16px] !min-h-[50px] font-normal flex items-center"
+          lines="none"
+        >
+          <ion-input
+            formControlName="username"
+            type="text"
+            label="Nome do Usuário (Login)"
+            labelPlacement="floating"
+            placeholder=""
+            class="py-2 mb-[0.4rem] mt-1"
+          ></ion-input>
+        </ion-item>
+
+        <!-- Validação: Nome do usuário obrigatório -->
+        @if (showUsernameError) {
+          <div class="mt-1">
+            <p
+              class="text-[#CC3F3F] text-[10px] font-tommy-regular pl-2"
+              role="alert"
+            >
+              Informe o nome do usuário (login) que será utilizado para acessar o sistema.
+            </p>
+          </div>
+        }
+      </div>
+
+      <!-- Campo: Nome do Colaborador -->
+      <div class="flex flex-col">
+        <ion-item
+          class="w-full h-[50px] border border-[#D6D6D6] rounded-[10px] text-[#C2C2C2] text-[16px] !min-h-[50px]  flex items-center"
+          lines="none"
+        >
+          <ion-input
+            formControlName="collaboratorName"
+            type="text"
+            label="Nome do Colaborador"
+            labelPlacement="floating"
+            placeholder=""
+            class="py-2 mb-[0.4rem] mt-1"
+          ></ion-input>
+        </ion-item>
+
+        <!-- Validação: Nome do colaborador obrigatório -->
+        @if (showCollaboratorError) {
+          <div class="mt-1">
+            <p
+              class="text-[#CC3F3F] text-[10px] font-tommy-regular pl-2"
+              role="alert"
+            >
+              Informe o nome do colaborador que será o proprietário da conta.
+            </p>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Título da seção de permissões -->
+    <div class="text-[10px] text-[#C2C2C2] font-tommy-bold py-1 px-2">
+      PERMISSÕES DO USUÁRIO
+    </div>
+
+    <!-- Lista de permissões por módulo -->
+    <div class="flex flex-col gap-[.38rem]">
+      @for (permission of permissions; track $index) {
+        <div class="h-[50px] bg-[#EFEFEF] rounded-[10px] px-2 py-0">
+          <span class="text-[#393939] text-[10px] font-tommy-bold">
+            Módulo: {{ permission.module }}
+          </span>
+
+          <!-- Botões de controle de permissão -->
+          <div class="flex gap-2 mt-0">
+            <!-- Botão: Acessar -->
+            <button
+              type="button"
+              class="w-[74px] h-[20px] text-[10px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-1.5 cursor-pointer"
+              [ngClass]="
+                permission.access
+                  ? 'bg-[#2BAA00] text-white'
+                  : 'bg-[#D3D3D3] text-[#393939]'
+              "
+              (click)="togglePermission(permission, 'access')"
+            >
+              ACESSAR
+              <svg
+                class="w-[12px] h-[12px]"
+                [ngClass]="permission.access ? 'fill-white' : 'fill-[#393939]'"
+              >
+                <use href="#lock-open-solid" />
+              </svg>
+            </button>
+
+            <!-- Botão: Editar -->
+            <button
+              type="button"
+              class="w-[57px] h-[20px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-0.5 cursor-pointer"
+              [ngClass]="
+                permission.edit
+                  ? 'bg-[#2BAA00] text-white'
+                  : 'bg-[#D3D3D3] text-[#393939]'
+              "
+              (click)="togglePermission(permission, 'edit')"
+            >
+              <div class="text-[10px]">EDITAR</div>
+              <svg
+                class="w-[12px] h-[12px]"
+                [ngClass]="permission.edit ? 'fill-white' : 'fill-[#393939]'"
+              >
+                <use href="#lock-closed-solid" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Validação: Nenhuma permissão selecionada -->
+    @if (showPermissionsError) {
+      <div class="mt-2">
+        <p
+          class="text-[#CC3F3F] text-[10px] font-tommy-regular pl-2"
+          role="alert"
+        >
+          Escolha no mínimo 1 (uma) permissão.
+        </p>
+      </div>
+    }
+
+    <!-- Botão final: Criar usuário -->
+    <button
+      type="submit"
+      class="absolute bottom-[24px] right-[24px] w-[116px] h-[30px] bg-[#393939] text-white text-[12px] font-tommy-bold rounded-[5px] flex items-center justify-center gap-2 mr-[2px]"
+    >
+      <svg class="w-[18px] h-[18px] fill-white">
+        <use href="#plus-circle" />
+      </svg>
+      Criar Usuário
+    </button>
+  </form>
+</div>
